@@ -6,6 +6,8 @@ N Accordion
 - Animation
 - No dependencies
 
+[Demo](https://radogado.github.io/n-accordion/)
+
 ```html
 <div class="n-accordion">
 							
@@ -27,4 +29,4 @@ N Accordion
 - npm install --save-dev n-accordion
 - require('./node_modules/n-accordion/index.js');
 
-Extracted from [natUIve](https://github.com/radogado/natuive).
+Extracted from [natUIve](https://github.com/radogado/natuive)
