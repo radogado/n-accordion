@@ -1,0 +1,24 @@
+{
+  "name": "n-accordion",
+  "version": "1.0.0",
+  "description": "Small, dependency-free, accessible accordion module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/radogado/n-accordion.git"
+  },
+  "keywords": [
+    "accordion",
+    "css",
+    "javascript"
+  ],
+  "author": "Radoslav Sharapanov <spacest@gmail.com> (http://github.com/radogado)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/radogado/n-accordion/issues"
+  },
+  "homepage": "https://github.com/radogado/n-accordion#readme"
+}
