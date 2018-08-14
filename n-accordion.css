@@ -21,6 +21,7 @@
     padding: .75em 0;
     padding-right: 1.5em; 
 	box-sizing: border-box;
+	white-space: initial;
     }
     .n-accordion > .label:after {
       content: "▼";
