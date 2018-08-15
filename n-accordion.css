@@ -4,8 +4,12 @@
   position: relative;
   margin: 0;
   max-width: 100%;
-  z-index: 1; }
-  .n-accordion > .label {
+  z-index: 1; 
+  
+  display: grid; /* CSS-only checkbox */
+  
+  }
+  .n-accordion > .n-accordion--label {
     margin: 0;
     float: none;
     text-align: left;
@@ -23,33 +27,63 @@
 	box-sizing: border-box;
 	white-space: initial;
     }
-    .n-accordion > .label:after {
+    .n-accordion > .n-accordion--label:after {
       content: "▼";
       position: absolute;
       right: 1em;
       font-size: .5em;
       top: 50%;
       transform: translateY(-50%); }
-  .n-accordion[aria-expanded] > .label {
+  .n-accordion[aria-expanded] > .n-accordion--label {
     cursor: zoom-out; }
-    .n-accordion[aria-expanded] > .label:after {
+    .n-accordion[aria-expanded] > .n-accordion--label:after {
       content: "▲"; }
-  .n-accordion:not([data-init]):not(.mobile) .content {
+  .n-accordion:not([data-init]):not(.mobile) .n-accordion--content {
     /* hidden fold item */
     overflow: hidden;
     cursor: auto;
     will-change: max-width; }
-  .n-accordion[aria-expanded] .content {
+  .n-accordion[aria-expanded] .n-accordion--content {
     max-height: none; }
-  .n-accordion:not([aria-expanded]):not(.mobile):not(.horizontal) > .content, .n-accordion[aria-expanded]:not(.horizontal) input.trigger:checked ~ .content {
+  .n-accordion:not([aria-expanded]):not(.mobile):not(.horizontal) > .n-accordion--content, .n-accordion[aria-expanded]:not(.horizontal) input.trigger:checked ~ .n-accordion--content {
     max-height: 0;
     max-height: var(--start-height, 0); }
   .n-accordion:first-of-type {
     margin-bottom: 0; }
-    .n-accordion:first-of-type .content {
+    .n-accordion:first-of-type .n-accordion--content {
       padding-top: 0; }
-  .n-accordion:not(.horizontal) > input.trigger:checked ~ .content, .n-accordion.mobile:not(.horizontal) .content {
+  .n-accordion:not(.horizontal) > input.trigger:checked ~ .n-accordion--content, .n-accordion.mobile:not(.horizontal) .n-accordion--content {
     max-height: none; }
-  .n-accordion[aria-expanded] > input.trigger + .content {
+  .n-accordion[aria-expanded] > input.trigger + .n-accordion--content {
     display: inline-block; }
-/* paste some css */
+    
+    
+.n-accordion > .n-accordion--label, .n-accordion > input {
+	
+	grid-column-start: 1;
+	grid-row-start: 1;
+	
+}
+
+.n-accordion > input {
+
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	margin: 0;
+	z-index: 1;
+	cursor: zoom-in;
+	
+}
+
+.n-accordion > input:checked {
+
+	cursor: zoom-out;
+	
+}
+
+.n-accordion:not([aria-expanded]):not(.mobile):not(.horizontal) > input:checked ~ .n-accordion--content {
+	
+	max-height: none;
+	
+}

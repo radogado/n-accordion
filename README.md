@@ -4,6 +4,7 @@ N Accordion
 - Support for nested accordions
 - Keyboard accessibility
 - Animation
+- CSS-only functionality
 - No dependencies
 
 [Demo](https://radogado.github.io/n-accordion/)
@@ -16,6 +17,8 @@ N Accordion
 		Title
 		
 	</h3>
+	
+	<input type="checkbox">
 	
 	<div class="content">
 		

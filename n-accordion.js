@@ -128,7 +128,7 @@ function hasClass(el, className) {
 	
 		stopEvent(e);
 	    var el = e.target.closest('.n-accordion');
-	    var content = el.querySelector('.content');
+	    var content = el.querySelector('.n-accordion--content');
 	
 		content.style.setProperty('--width', content.scrollWidth + 'px');
 		content.style.setProperty('--max-height', content.scrollHeight + 'px');
@@ -166,7 +166,7 @@ function hasClass(el, className) {
 	
 	function initFold() {
 		
-		document.querySelectorAll('.n-accordion:not([data-ready]) > .label').forEach( function(el) {
+		document.querySelectorAll('.n-accordion:not([data-ready]) > .n-accordion--label').forEach( function(el) {
 	
 		    el.onclick = toggleAccordion;
 			el.setAttribute('tabindex', 0);
@@ -181,7 +181,16 @@ function hasClass(el, className) {
 			};
 		
 		    el = el.parentNode;
-			var content = el.querySelector('.content');
+		    
+		    
+		    var checkbox = el.querySelector('input[type=checkbox]'); // Remove CSS-only solution
+		    if (checkbox && checkbox.parentNode === el) {
+			    
+			    el.removeChild(checkbox);
+			    
+		    }
+		    
+			var content = el.querySelector('.n-accordion--content');
 			
 			if (hasClass(el, 'horizontal')) {
 				
