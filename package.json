@@ -1,6 +1,6 @@
 {
   "name": "n-accordion",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Small, dependency-free, accessible accordion module",
   "main": "index.js",
   "scripts": {
