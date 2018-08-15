@@ -12,7 +12,7 @@ N Accordion
 ```html
 <div class="n-accordion">
 							
-	<h3 class="label">
+	<h3 class="n-accordion--label">
 		
 		Title
 		
@@ -20,7 +20,7 @@ N Accordion
 	
 	<input type="checkbox">
 	
-	<div class="content">
+	<div class="n-accordion--content">
 		
 		<p>Content</p>
 		
