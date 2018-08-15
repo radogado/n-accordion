@@ -26,6 +26,8 @@
     padding-right: 1.5em; 
 	box-sizing: border-box;
 	white-space: initial;
+	word-wrap: break-word;
+	word-break: break-all;
     }
     .n-accordion > .n-accordion--label:after {
       content: "▼";
