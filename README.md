@@ -12,15 +12,15 @@ N Accordion
 ```html
 <div class="n-accordion">
 							
-	<h3 class="n-accordion--label">
+	<button class="n-accordion__label">
 		
 		Title
 		
-	</h3>
+	</button>
 	
 	<input type="checkbox">
 	
-	<div class="n-accordion--content">
+	<div class="n-accordion__content">
 		
 		<p>Content</p>
 		
@@ -29,7 +29,7 @@ N Accordion
 </div>
 ```
 
-- npm install --save-dev n-accordion
+- npm i --save-dev n-accordion
 - require('./node_modules/n-accordion/index.js');
 
-Extracted from [natUIve](https://github.com/radogado/natuive)
+Extracted from [niui](https://github.com/radogado/niui)
