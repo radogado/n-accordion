@@ -1,4 +1,4 @@
-N Accordion
+Native Accordion
 
 - 1.5 KB gzipped
 - Support for nested accordions
