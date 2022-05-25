@@ -106,7 +106,7 @@
   }
 
   grid-template: auto / repeat(var(--n-popin-columns), auto);
-  gap: 0.5rem;
+  column-gap: 0.5rem;
 
   > * {
 	display: contents;
