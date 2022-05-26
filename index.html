@@ -1,4 +1,7 @@
+<html lang="en">
+<head>
 <meta charset="utf-8">
+<title>Native Accordion</title>
 
 <link rel="styleSheet" href="n-accordion.css" type="text/css" media="screen">
 
@@ -6,8 +9,8 @@
 	:root {
 		--control-bg: #017e7e;
 		--control-color: white;
-		--control-active-bg: #cc7c7e;
-		--control-active-color: #fdff00;
+		--control-active-bg: #b94e50;
+		--control-active-color: #fff;
 		--control-highlight: #2abfb0;
 	}
 
@@ -51,6 +54,8 @@
 		display: inline-block;
 	}
 </style>
+</head>
+<body>
 
 <main>
 
@@ -404,3 +409,5 @@
 		document.querySelector(".headline-version").dataset.version = text.version.split(".")[0] + "." + text.version.split(".")[1];
 	});
 </script>
+</body>
+</html>
