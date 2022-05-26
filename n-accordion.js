@@ -6,7 +6,8 @@
 		window.requestAnimationFrame(() => {
 			el.style.height = 0;
 			el.style.overflow = "hidden";
-			el.parentNode.setAttribute("aria-expanded", true);
+			el.parentNode.setAttribute("data-expanded", true);
+			el.parentNode.querySelector(":scope > .n-accordion__label button").setAttribute("aria-expanded", true);
 			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(el.parentNode)).onfinish = () => {
 				el.style.height = el.style.overflow = "";
 				typeof callback !== 'function' || callback();
@@ -20,21 +21,22 @@
 			el.style.overflow = "hidden";
 			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(el.parentNode)).onfinish = () => {
 				el.style.height = el.style.overflow = "";
-				el.parentNode.removeAttribute("aria-expanded");
+				el.parentNode.removeAttribute("data-expanded");
+				el.parentNode.querySelector(":scope > .n-accordion__label button").removeAttribute("aria-expanded");
 				typeof callback !== 'function' || callback();
 			};
 		});
 	};
 	const toggleAccordion = (e) => {
-		let el = e.target.parentNode; // el = .n-accordion
-		if (!el.getAttribute('aria-expanded')) {
+		let el = e.target.closest('.n-accordion'); // el = .n-accordion
+		if (!el.getAttribute('data-expanded')) {
 			let container = el.closest(".n-accordion__popin");
 			if (container) {
 				let row = Math.floor(([...container.children].indexOf(el) / getComputedStyle(container).getPropertyValue("--n-popin-columns")) * 1) + 2;
 				container.style.setProperty("--n-popin-open-row", row);
 			}
-			if (el.parentNode.matches('.n-accordion__group') || container) {
-				let other_accordion = el.parentNode.querySelector(":scope > [aria-expanded]");
+			if (el.parentNode.matches('[role="group"]') || container) {
+				let other_accordion = el.parentNode.querySelector(":scope > [data-expanded]");
 				if (other_accordion) {
 					closeAccordion(other_accordion, () => { // el = .n-accordion
 						console.log(el);
