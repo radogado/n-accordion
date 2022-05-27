@@ -51,7 +51,7 @@
 			color: var(--control-active-color, #222);
 			cursor: zoom-out;
 
-			&:after {
+			button:after {
 				transform: rotate(180deg);
 			}
 		}

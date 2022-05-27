@@ -35,8 +35,8 @@
   color: var(--control-active-color, #222);
   cursor: zoom-out;
 }
-.n-accordion[data-expanded] > .n-accordion__label:after,
-.n-accordion input:checked ~ .n-accordion__label:after {
+.n-accordion[data-expanded] > .n-accordion__label button:after,
+.n-accordion input:checked ~ .n-accordion__label button:after {
   transform: rotate(180deg);
 }
 .n-accordion .n-accordion {

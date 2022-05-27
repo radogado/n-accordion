@@ -39,7 +39,7 @@
 				let other_accordion = el.parentNode.querySelector(":scope > [data-expanded]");
 				if (other_accordion) {
 					closeAccordion(other_accordion, () => { // el = .n-accordion
-						console.log(el);
+						// console.log(el);
 						openAccordion(el);
 					});
 				} else {
