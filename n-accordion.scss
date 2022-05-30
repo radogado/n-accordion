@@ -74,7 +74,7 @@
 	position: relative;
 
 	button {
-		
+
 		cursor: pointer;
 		word-wrap: break-word;
 		word-break: break-all;
@@ -82,7 +82,7 @@
 		color: var(--control-color, inherit);
 		border: none;
 		width: 100%;
-	padding: calc(var(--line-height-em, 1.5rem) / 2);
+		padding: calc(var(--line-height-em, 1.5rem) / 2);
 		padding-inline-end: 1.5em;
 		text-align: start;
 		font: inherit;
@@ -134,4 +134,23 @@
 		grid-column: initial;
 		grid-row: initial;
 	}
+}
+
+@media (min-width: 600px) {
+
+	.n-accordion.n-accordion--mobile {
+
+
+		.n-accordion__label,
+		> input[type=checkbox] {
+			display: none;
+		}
+
+		&[data-ready]:not([data-expanded]) > .n-accordion__content,
+		> input:not(:checked) ~ .n-accordion__content {
+			display: initial;
+		}
+
+	}
+
 }

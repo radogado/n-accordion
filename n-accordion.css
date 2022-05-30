@@ -102,4 +102,15 @@
   grid-row: initial;
 }
 
+@media (min-width: 600px) {
+  .n-accordion.n-accordion--mobile .n-accordion__label,
+.n-accordion.n-accordion--mobile > input[type=checkbox] {
+    display: none;
+  }
+  .n-accordion.n-accordion--mobile[data-ready]:not([data-expanded]) > .n-accordion__content,
+.n-accordion.n-accordion--mobile > input:not(:checked) ~ .n-accordion__content {
+    display: initial;
+  }
+}
+
 /*# sourceMappingURL=n-accordion.css.map */
