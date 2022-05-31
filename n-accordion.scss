@@ -2,10 +2,10 @@
 
 .n-accordion {
 	display: grid;
+	vertical-align: top;
 
 	&.n-accordion--inline {
 		display: inline-grid;
-		vertical-align: top;
 	}
 
 	> * {
@@ -24,6 +24,7 @@
 		border: none;
 		font: inherit;
 		text-align: initial;
+		margin: 0;
 	}
 
 	& > input[type="checkbox"] {
@@ -139,7 +140,6 @@
 @media (min-width: 600px) {
 
 	.n-accordion.n-accordion--mobile {
-
 
 		.n-accordion__label,
 		> input[type=checkbox] {

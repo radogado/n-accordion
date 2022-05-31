@@ -2,10 +2,10 @@
 /* niui – Fold */
 .n-accordion {
   display: grid;
+  vertical-align: top;
 }
 .n-accordion.n-accordion--inline {
   display: inline-grid;
-  vertical-align: top;
 }
 .n-accordion .n-accordion__label, .n-accordion > input[type=checkbox] {
   grid-column-start: 1;
@@ -16,6 +16,7 @@
   border: none;
   font: inherit;
   text-align: initial;
+  margin: 0;
 }
 .n-accordion > input[type=checkbox] {
   z-index: 1;
