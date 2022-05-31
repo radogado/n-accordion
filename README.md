@@ -35,6 +35,6 @@ Native Accordion
 ```
 
 - npm i --save-dev n-accordion
-- require('./node_modules/n-accordion/n-accordion.js');
+- require('./node_modules/n-accordion/index.js');
 
 Extracted from [niui](https://github.com/radogado/niui)
