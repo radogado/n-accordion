@@ -1,0 +1,100 @@
+:root {
+	--control-bg: #017e7e;
+	--control-color: white;
+	--control-active-bg: #b94e50;
+	--control-active-color: #fff;
+	--control-highlight: #2abfb0;
+	background: black;
+	color: #ccc;
+}
+
+main {
+	margin: auto;
+	max-width: 70ch;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	line-height: 1.333;
+
+
+	
+	a[href] {
+		color: #eee;
+	}
+	
+}
+
+pre {
+	overflow: auto;
+}
+
+:root pre[class*="language-"] {
+	margin: 0;
+}
+
+.headline-version:after {
+	content: attr(data-version);
+	padding-inline-start: 1ch;
+	font-size: 0.5em;
+	font-weight: normal;
+	vertical-align: super;
+}
+
+[href*="n-accordion.min"] {
+	text-decoration: none;
+	white-space: nowrap;
+}
+
+[href*="n-accordion.min"]:after {
+	content: attr(data-size);
+	padding-inline-start: 1ch;
+	min-width: 6ch;
+	display: inline-block;
+	font-size: 0.75em;
+	vertical-align: top;
+}
+
+[href*="n-accordion.min"][data-size="0.0 KB"]:after {
+	opacity: 0;
+}
+
+[href*="n-accordion.min"] b {
+	text-decoration: underline;
+	min-width: 4ch;
+	display: inline-block;
+}
+
+.code code {
+	font-family: monospace !important;
+	line-height: 1.9 !important;
+	display: block;
+}
+
+.code {
+	position: relative;
+	margin: 1.5em 0;
+	display: inline-block;
+	width: 100%;
+	direction: ltr;
+
+	pre {
+		padding: 1em;
+		margin: 0;
+		font-family: monospace;
+	}
+
+	button.n-btn {
+		position: absolute;
+		bottom: 0;
+		right: 0;
+		font-size: 0.75em;
+		margin: 0;
+		-webkit-appearance: none;
+		appearance: none;
+		background: #ad421b;
+		border: none;
+		cursor: pointer;
+		color: #fff;
+		font-weight: bold;
+		line-height: 2;
+		padding: 0.25em 1em;
+	}
+}

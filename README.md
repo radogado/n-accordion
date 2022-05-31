@@ -1,11 +1,16 @@
 Native Accordion
 
-- 1.5 KB gzipped
-- Support for nested accordions
-- Keyboard accessibility
-- Animation
+- Expand/collapse content
+- Nested accordions option
+- Keyboard control
+- Accessibility compliance
+- Animation (when allowed)
 - CSS-only functionality
+- Pop-in option
+- RTL support
+- BEM classes
 - No dependencies
+- <2 KB gzipped
 
 [Demo](https://radogado.github.io/n-accordion/)
 
@@ -30,6 +35,6 @@ Native Accordion
 ```
 
 - npm i --save-dev n-accordion
-- require('./node_modules/n-accordion/index.js');
+- require('./node_modules/n-accordion/n-accordion.js');
 
 Extracted from [niui](https://github.com/radogado/niui)

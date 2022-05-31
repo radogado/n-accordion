@@ -1,318 +1,318 @@
 <html lang="en">
 
-<head>
-	<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes" />
-	<meta charset="utf-8">
-	<link rel=icon href=./favicon.ico>
-	<title>Native Accordion</title>
-	<meta name="description" content="A native, progressively enhanced, versatile accordion component">
+	<head>
+		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes" />
+		<meta charset="utf-8">
+		<link rel=icon href=./favicon.ico>
+		<title>Native Accordion</title>
+		<meta name="description" content="A native, progressively enhanced, versatile accordion component">
 
-	<link rel="styleSheet" href="n-accordion.css" type="text/css" media="screen">
+		<link rel="styleSheet" href="n-accordion.css" type="text/css" media="screen">
+		<link rel="styleSheet" href="demo/demo.css" type="text/css" media="screen">
+		<link href="demo/prism-tomorrow.min.css" rel="styleSheet" />
 
-	<style>
-		:root {
-			--control-bg: #017e7e;
-			--control-color: white;
-			--control-active-bg: #b94e50;
-			--control-active-color: #fff;
-			--control-highlight: #2abfb0;
-		}
+		<script src="demo/prism.js" defer></script>
+		<script src="n-accordion.js" type="text/javascript" module></script>
 
-		main {
-			margin: auto;
-			max-width: 70ch;
-			font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
-			line-height: 1.333;
+	</head>
 
-		}
+	<body>
 
-		pre {
-			overflow: auto;
-		}
+		<main>
 
-		.headline-version:after {
-			content: attr(data-version);
-			padding-inline-start: 1ch;
-			font-size: 0.5em;
-			font-weight: normal;
-			vertical-align: super;
-		}
+			<h1 class="headline-version">Native Accordion</h1>
 
-		[href*="n-accordion.min"] {
-			text-decoration: none;
-			white-space: nowrap;
-		}
+			<ul>
+				
+				<li>Expand/collapse content</li>
+				<li>Nested accordions</li>
+				<li>Keyboard control</li>
+				<li>Accessibility compliance</li>
+				<li>Animation (when allowed)</li>
+				<li>CSS-only fallback</li>
+				<li>Pop-in grid</li>
+				<li>RTL support</li>
+				<li>BEM classes</li>
+				<li>No dependencies</li>
+				<li>&lt;2 KB gzipped</li>
 
-		[href*="n-accordion.min"]:after {
-			content: attr(data-size);
-			padding-inline-start: 1ch;
-			min-width: 6ch;
-			display: inline-block;
-			font-size: 0.75em;
-			vertical-align: top;
-		}
+			</ul>
 
-		[href*="n-accordion.min"][data-size="0.0 KB"]:after {
-			opacity: 0;
-		}
+			<div>
 
-		[href*="n-accordion.min"] b {
-			text-decoration: underline;
-			min-width: 4ch;
-			display: inline-block;
-		}
-	</style>
-</head>
+				<div>
 
-<body>
+					<div class="n-accordion">
 
-	<main>
+						<input type="checkbox">
+						<h2 class="n-accordion__label"><button> Accordion </button></h2>
 
-		<h1 class="headline-version">Native Accordion</h1>
+						<div class="n-accordion__content">
 
-		<ul>
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 
-			<li>Support for nested accordions</li>
-			<li>Keyboard control</li>
-			<li>Accessibility compliance</li>
-			<li>Animation (when allowed)</li>
-			<li>CSS-only functionality</li>
-			<li>No dependencies</li>
-			<li>Pop-in option</li>
-			<li>RTL support</li>
-			<li><2 KB gzipped</li>
+							<p><a href="#">Demo Link</a>.</p>
 
-		</ul>
+						</div>
 
-		<pre>
-&lt;div class=&quot;n-accordion&quot;&gt;
-							
-	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
-		
-		&lt;button&gt;Title&lt;/button&gt;
-		
-	&lt;/h2&gt;
-	
+					</div>
+
+			<div class="code">
+				<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
 	&lt;input type=&quot;checkbox&quot;&gt;
-	
+	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
+		&lt;button&gt;Title&lt;/button&gt;
+	&lt;/h2&gt;
 	&lt;div class=&quot;n-accordion__content&quot;&gt;
-		
 		&lt;p&gt;Content&lt;/p&gt;
-		
 	&lt;/div&gt;
-
-&lt;/div&gt;
-</pre>
-
-		<div>
-
-			<div>
-
-				<div class="n-accordion">
-
-					<input type="checkbox">
-					<h2 class="n-accordion__label"><button> Accordion </button></h2>
-
-					<div class="n-accordion__content">
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-						<p><a href="#">Demo Link</a>.</p>
-
-					</div>
-
-				</div>
-
+&lt;/div&gt;</code></pre>
 			</div>
-			<div>
-				<div class="n-accordion" data-expanded="true">
-					<input type="checkbox">
-					<div role="heading" class="n-accordion__label"><button>Open by default</button></div>
-					<div class="n-accordion__content">
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-						<p><a href="#">Link third</a>.</p>
-					</div>
+					
 				</div>
-				<div class="code">
-					<pre><code class="language-markup">&lt;div class="n-accordion" data-expanded="true"&gt;
-	&lt;h2&gt;&lt;button class="n-accordion__label"&gt; Label &lt;/button&gt;&lt;/h2&gt;
-	&lt;input type="checkbox""&gt;
+				<div>
+					<h2>Open by default</h2>
+					<div class="n-accordion" data-expanded="true">
+						<input type="checkbox" checked>
+						<div role="heading" aria-level="2" class="n-accordion__label"><button>Open by default</button></div>
+						<div class="n-accordion__content">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+							<p><a href="#">Link third</a>.</p>
+						</div>
+					</div>
+					<div class="code">
+						<pre><code class="language-markup">&lt;div class="n-accordion" data-expanded="true"&gt;
+	&lt;input type="checkbox"&gt;
+	&lt;h2 class="n-accordion__label"&gt;
+		&lt;button aria-expanded="true"&gt; Label &lt;/button&gt;
+	&lt;/h2&gt;
 	&lt;div class="n-accordion__content"&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
 	&lt;/div&gt;
-&lt;/div&gt;</code>
-</pre>
-				</div>
-			</div>
-			<div>
-				<h2>Accordion Group</h2>
-				<div role="group">
-					<div class="n-accordion">
-						<input type="checkbox">
-						<h2 class="n-accordion__label"><button>Accordion 1</button></h2>
-						<div class="n-accordion__content">
-							<p>Content 1</p>
-							<p><a href="#">Link fourth</a>.</p>
-						</div>
-					</div>
-					<div class="n-accordion">
-						<input type="checkbox">
-						<h2 class="n-accordion__label"><button>Accordion 2</button></h2>
-						<div class="n-accordion__content">
-							<p>Content 2</p>
-							<p><a href="#">Link fifth</a>.</p>
-						</div>
-					</div>
-					<div class="n-accordion">
-						<input type="checkbox">
-						<h2 class="n-accordion__label"><button>Accordion 3</button></h2>
-						<div class="n-accordion__content">
-							<p>Content 3</p>
-							<p><a href="#">Link sixth</a>.</p>
-						</div>
+&lt;/div&gt;</code></pre>
 					</div>
 				</div>
-				<div class="code">
-					<pre><code class="language-markup">&lt;div role="group"&gt;
-
-	&lt;div class="n-accordion"&gt;
-	
-		...
-	
-	&lt;/div&gt;
-	
-	&lt;div class="n-accordion"&gt;
-	
-		...
-	
-	&lt;/div&gt;
-	
-	...
-
-&lt;/div&gt;</code>
-</pre>
-				</div>
-			</div>
-			<div class="_1/1">
-				<div class="n-accordion">
-					<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
-					<div class="n-accordion__content">
+				<div>
+					<h2>Accordion Group</h2>
+					<div role="group">
 						<div class="n-accordion">
 							<input type="checkbox">
-							<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
+							<h2 class="n-accordion__label"><button>Accordion 1</button></h2>
 							<div class="n-accordion__content">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-								<p><a href="#">Link seventh</a>.</p>
+								<p>Content 1</p>
+								<p><a href="#">Link fourth</a>.</p>
 							</div>
 						</div>
 						<div class="n-accordion">
 							<input type="checkbox">
-							<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
+							<h2 class="n-accordion__label"><button>Accordion 2</button></h2>
 							<div class="n-accordion__content">
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-								<p><a href="#">Link eighth</a>.</p>
+								<p>Content 2</p>
+								<p><a href="#">Link fifth</a>.</p>
+							</div>
+						</div>
+						<div class="n-accordion">
+							<input type="checkbox">
+							<h2 class="n-accordion__label"><button>Accordion 3</button></h2>
+							<div class="n-accordion__content">
+								<p>Content 3</p>
+								<p><a href="#">Link sixth</a>.</p>
 							</div>
 						</div>
 					</div>
-				</div>
-			</div>
-			<div class="_1/1">
-				<h2>Pop-in</h2>
-				<div class="n-accordion__popin" role="group" style="--duration: .333">
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>1</button></h2>
-						<div class="n-accordion__content">Content for 1</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>2</button></h2>
-						<div class="n-accordion__content">Content for 2</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>3</button></h2>
-						<div class="n-accordion__content">Content for 3</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>4</button></h2>
-						<div class="n-accordion__content">Content for 4</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>5</button></h2>
-						<div class="n-accordion__content">Content for 5</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>6</button></h2>
-						<div class="n-accordion__content">Content for 6</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>7</button></h2>
-						<div class="n-accordion__content">Content for 7</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>8</button></h2>
-						<div class="n-accordion__content">Content for 8</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>9</button></h2>
-						<div class="n-accordion__content">Content for 9</div>
-					</div>
-					<div class="n-accordion">
-						<h2 class="n-accordion__label"><button>10</button></h2>
-						<div class="n-accordion__content">Content for 10</div>
-					</div>
-				</div>
-				<br>
-				<div class="code">
-					<pre><code class="language-markup">&lt;div class="n-accordion__popin" role="group"&gt;
+					<div class="code">
+						<pre><code class="language-markup">&lt;div role="group"&gt;
 	&lt;div class="n-accordion"&gt;
-		&lt;summary&gt;1&lt;/summary&gt;
-		&lt;div&gt;Content for 1&lt;/div&gt;
-	&lt;/details&gt;
+		...
+	&lt;/div&gt;
+	&lt;div class="n-accordion"&gt;
+		...
+	&lt;/div&gt;
 	...
 &lt;/div&gt;</code></pre>
+					</div>
 				</div>
+				<div class="_1/1">
+					<h2>Nested Accordions</h2>
+					<div class="n-accordion">
+						<input type="checkbox">
+						<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
+						<div class="n-accordion__content">
+							<div class="n-accordion">
+								<input type="checkbox">
+								<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
+								<div class="n-accordion__content">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									<p><a href="#">Link seventh</a>.</p>
+								</div>
+							</div>
+							<div class="n-accordion">
+								<input type="checkbox">
+								<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
+								<div class="n-accordion__content">
+									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+									<p><a href="#">Link eighth</a>.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+			<div class="code">
+				<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
+	&lt;input type=&quot;checkbox&quot;&gt;
+	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
+		&lt;button&gt;Title&lt;/button&gt;
+	&lt;/h2&gt;
+	&lt;div class=&quot;n-accordion__content&quot;&gt;
+		&lt;div class=&quot;n-accordion&quot;&gt;
+			...
+		&lt;/div&gt;	
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+			</div>
+					
+				</div>
+				<div class="_1/1">
+					<h2>Pop-in</h2>
+					<div class="n-accordion__popin" role="group" style="--duration: .125">
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>1</button></h2>
+							<div class="n-accordion__content">Content for 1</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>2</button></h2>
+							<div class="n-accordion__content">Content for 2</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>3</button></h2>
+							<div class="n-accordion__content">Content for 3</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>4</button></h2>
+							<div class="n-accordion__content">Content for 4</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>5</button></h2>
+							<div class="n-accordion__content">Content for 5</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>6</button></h2>
+							<div class="n-accordion__content">Content for 6</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>7</button></h2>
+							<div class="n-accordion__content">Content for 7</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>8</button></h2>
+							<div class="n-accordion__content">Content for 8</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>9</button></h2>
+							<div class="n-accordion__content">Content for 9</div>
+						</div>
+						<div class="n-accordion">
+							<h2 class="n-accordion__label"><button>10</button></h2>
+							<div class="n-accordion__content">Content for 10</div>
+						</div>
+					</div>
+					<br>
+					<div class="code">
+						<pre><code class="language-markup">&lt;div class="n-accordion__popin" role="group"&gt;
+	&lt;div class="n-accordion"&gt;
+		...
+	&lt;/div&gt;
+	...
+&lt;/div&gt;</code></pre>
+					</div>
+				</div>
+
+				<h2>Mobile only</h2>
+
+				<div class="n-accordion n-accordion--mobile">
+
+					<h2 class="n-accordion__label"><button>
+
+							Mobile Accordion
+
+						</button></h2>
+
+					<input type="checkbox">
+
+					<div class="n-accordion__content">
+
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+					</div>
+
+				</div>
+
+				<div class="code">
+					<pre><code class="language-markup">&lt;div class=&quot;n-accordion n-accordion--mobile&quot;&gt;
+	&lt;input type=&quot;checkbox&quot;&gt;
+	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
+		&lt;button&gt;Title&lt;/button&gt;
+	&lt;/h2&gt;
+	&lt;div class=&quot;n-accordion__content&quot;&gt;
+		&lt;p&gt;Content&lt;/p&gt;
+	&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+				</div>
+
+
 			</div>
 
-			<h2>Mobile only</h2>
+			<h2>How to use</h2>
 
-			<div class="n-accordion n-accordion--mobile">
+			<p>Get the <a href="https://www.npmjs.com/package/n-accordion">n-accordion NPM module</a> and either add <b><a href="n-accordion.js">n-accordion.js</a></b> and <b><a href="n-accordion.scss">n-accordion.scss</a></b> to your project<br> or use <a href="n-accordion.min.js">n-accordion.min.js</a> and <a href="n-accordion.min.css">n-accordion.min.css</a> on your page.</p>
 
-				<h2 class="n-accordion__label"><button>
+			<h2>Options</h2>
 
-						Mobile Accordion
+			<ul>
+				<li>Use the <b>--duration</b> CSS variable or the <b>data-duration</b> attribute on <b>.n-accordion</b> for custom animation timing, in seconds</li>
+				<li>Specify colour theme by CSS variables <b>--control-bg</b>, <b>--control-color</b>, <b>--control-active-bg</b>, <b>--control-active-color</b></li>
+				<li>Pop-in number of columns specified by <b>--n-popin-columns</b></li>
+				<li>The <b>.n-accordion__label</b> element can be either <b>h1</b>/<b>h2</b>/<b>h3</b>/<b>h4</b>/<b>h5</b>/<b>h6</b> or any tag with <b>role="heading"</b></li>
+				<li>Customize the label vertical margin by <b>--accordion-margin</b></li>
+				<li>Animation is instant when the system <b>Reduce motion</b> option is enabled</li>
+			</ul>
 
-					</button></h2>
+			<h2>Links</h2>
 
-				<input type="checkbox">
+			<p><a href=https://github.com/radogado/n-accordion>GitHub page</a></p>
 
-				<div class="n-accordion__content">
+			<p>Developed by <a href="//rado.bg">Radoslav Sharapanov</a>, originally a part of the <a href="//niui.dev/">niui</a> library.</p>
 
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+			<p><a href="https://www.paypal.com/paypalme/radogado/5">Buy me a beer</a></p>
 
-				</div>
+		</main>
 
-			</div>
+		<script>
+			function copyButton(el, target, echo) {
+				el.addEventListener("click", (event) => {
+					window.getSelection().removeAllRanges(); // Clear previous clipboard
+					var range = document.createRange();
+					range.selectNode(target);
+					window.getSelection().addRange(range);
 
-		</div>
+					try {
+						document.execCommand("copy");
+					} catch (err) {}
+				});
+			}
 
-		<p><a href=https://github.com/radogado/n-accordion>GitHub page</a></p>
+			document.querySelectorAll(".code").forEach(function(el) {
+				el.insertAdjacentHTML("beforeend", "<button class='n-btn' type='button'>Copy</button>");
+				copyButton(el.querySelector("button"), el.querySelector("pre"));
+			});
 
-		<p>Extracted from <a href=https://github.com/radogado/niui>niui</a>.</p>
-
-		<h2>How to use</h2>
-
-		<p>Get the <a href="https://www.npmjs.com/package/n-accordion">n-accordion NPM module</a> and either add <b><a href="n-accordion.js">n-accordion.js</a></b> and <b><a href="n-accordion.scss">n-accordion.scss</a></b> to your project<br> or use <a href="n-accordion.min.js">n-accordion.min.js</a> and <a href="n-accordion.min.css">n-accordion.min.css</a> on your page.</p>
-
-	</main>
-
-	<script src="n-accordion.js" type="text/javascript"></script>
-	<script>
-		["css", "js"].forEach((el) => {
-			fetch(`n-accordion.min.${el}.size`).then((response) => response.text()).then((text) => (document.querySelector(`[href="n-accordion.min.${el}"]`).dataset.size = `${parseFloat(text / 1024).toFixed(1)} KB`));
-		});
-		fetch(`package.json`).then((response) => response.json()).then((text) => {
-			document.querySelector(".headline-version").dataset.version = text.version.split(".")[0] + "." + text.version.split(".")[1];
-		});
-	</script>
-</body>
+			["css", "js"].forEach((el) => {
+				fetch(`n-accordion.min.${el}.size`).then((response) => response.text()).then((text) => (document.querySelector(`[href="n-accordion.min.${el}"]`).dataset.size = `${parseFloat(text / 1024).toFixed(1)} KB`));
+			});
+			fetch(`package.json`).then((response) => response.json()).then((text) => {
+				document.querySelector(".headline-version").dataset.version = text.version.split(".")[0] + "." + text.version.split(".")[1];
+			});
+		</script>
+	</body>
 
 </html>

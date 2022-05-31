@@ -1,6 +1,8 @@
 @charset "UTF-8";
 /* niui – Fold */
 
+$mobile: 600px;
+
 .n-accordion {
 	display: grid;
 	vertical-align: top;
@@ -25,7 +27,7 @@
 		border: none;
 		font: inherit;
 		text-align: initial;
-		margin: 0;
+		margin: var(--accordion-margin, .25em) 0;
 	}
 
 	& > input[type="checkbox"] {
@@ -48,12 +50,12 @@
 
 	&[data-expanded] > ,
 	input:checked ~ {
-		.n-accordion__label {
+		.n-accordion__label button {
 			background: var(--control-active-bg, #fff);
 			color: var(--control-active-color, #222);
 			cursor: zoom-out;
 
-			button:after {
+			&:after {
 				transform: rotate(180deg);
 			}
 		}
@@ -62,7 +64,7 @@
 	& & {
 		// Nested accordions
 
-		margin: 1em .5em;
+		margin: 0 .5em;
 
 	}
 
@@ -112,10 +114,6 @@
 	display: grid;
 	--n-popin-columns: 1;
 
-	@media (min-width: 600px) {
-		--n-popin-columns: 3;
-	}
-
 	grid-template: auto / repeat(var(--n-popin-columns), auto);
 	column-gap: 0.5rem;
 
@@ -136,9 +134,17 @@
 		grid-column: initial;
 		grid-row: initial;
 	}
+	
+	> :not([data-ready]) .n-accordion__content {
+		display: none;
+	}
 }
 
-@media (min-width: 600px) {
+@media (min-width: $mobile) {
+
+	.n-accordion__popin {
+		--n-popin-columns: 3;
+	}
 
 	.n-accordion.n-accordion--mobile {
 
