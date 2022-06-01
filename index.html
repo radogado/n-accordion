@@ -272,9 +272,10 @@
 				<li>Use the <b>--duration</b> CSS variable or the <b>data-duration</b> attribute on <b>.n-accordion</b> for custom animation timing, in seconds</li>
 				<li>Specify colour theme by CSS variables <b>--control-bg</b>, <b>--control-color</b>, <b>--control-active-bg</b>, <b>--control-active-color</b></li>
 				<li>Pop-in number of columns specified by <b>--n-popin-columns</b></li>
-				<li>The <b>.n-accordion__label</b> element can be either <b>h1</b>/<b>h2</b>/<b>h3</b>/<b>h4</b>/<b>h5</b>/<b>h6</b> or any tag with <b>role="heading"</b></li>
+				<li>The <b>.n-accordion__label</b> element can be either <b>h1</b>/<b>h2</b>/<b>h3</b>/<b>h4</b>/<b>h5</b>/<b>h6</b> or any tag with <b>role="heading"</b> and <b>aria-level</b></li>
 				<li>Customize the label vertical margin by <b>--accordion-margin</b></li>
 				<li>Animation is instant when the system <b>Reduce motion</b> option is enabled</li>
+				<li>Customize the chevron by overriding <b>.n-accordion__label button:after { --icon: url(...) }</b> by a <a href="https://yoksel.github.io/url-encoder/">URL-encoded</a> SVG. It will be coloured by <b>--control-color</b></li>
 			</ul>
 
 			<h2>Links</h2>
