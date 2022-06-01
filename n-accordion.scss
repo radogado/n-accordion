@@ -40,7 +40,7 @@ $mobile: 600px;
 		}
 	}
 
-	&[data-ready]:not([data-expanded]) > ,
+	&[data-ready] > .n-accordion__label:not([aria-expanded='true']) ~ ,
 	> input:not(:checked) ~ {
 		.n-accordion__content {
 			display: none;
@@ -48,9 +48,9 @@ $mobile: 600px;
 		}
 	}
 
-	&[data-expanded] > ,
-	input:checked ~ {
-		.n-accordion__label button {
+	> .n-accordion__label[aria-expanded='true'],
+	input:checked ~ .n-accordion__label {
+		 button {
 			background: var(--control-active-bg, #fff);
 			color: var(--control-active-color, #222);
 			cursor: zoom-out;
@@ -153,7 +153,7 @@ $mobile: 600px;
 			display: none;
 		}
 
-		&[data-ready]:not([data-expanded]) > .n-accordion__content,
+		&[data-ready] > .n-accordion__label:not([aria-expanded='true']) ~ .n-accordion__content,
 		> input:not(:checked) ~ .n-accordion__content {
 			display: initial;
 		}

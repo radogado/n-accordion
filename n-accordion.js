@@ -8,8 +8,7 @@
 			el.style.height = 0;
 			el.style.overflow = "hidden";
 			let wrapper = el.parentNode;
-			wrapper.setAttribute("data-expanded", true);
-			wrapper.querySelector(":scope > .n-accordion__label button").setAttribute("aria-expanded", true);
+			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
 			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
 				el.style.height = el.style.overflow = "";
 			};
@@ -18,20 +17,21 @@
 	const closeAccordion = (el, callback) => {
 		el = accordionContent(el);
 		window.requestAnimationFrame(() => {
-			// el.parentNode.open = true;
 			el.style.overflow = "hidden";
 			let wrapper = el.parentNode;
 			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
 				el.style.height = el.style.overflow = "";
-				wrapper.removeAttribute("data-expanded");
-				wrapper.querySelector(":scope > .n-accordion__label button").removeAttribute("aria-expanded");
+				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
 				typeof callback !== 'function' || callback();
+				if (wrapper.classList.contains('n-accordion--close-nested')) {
+					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
+				}
 			};
 		});
 	};
 	const toggleAccordion = (e) => {
 		let el = e.target.closest('.n-accordion'); // el = .n-accordion
-		if (!el.getAttribute('data-expanded')) {
+		if (!el.querySelector(":scope > [aria-expanded='true']")) {
 			let popin = el.closest(".n-accordion__popin");
 			const updateRow = () => {
 				if (popin) {
@@ -40,9 +40,9 @@
 				}
 			};
 			if (el.parentNode.matches('[role="group"]') || popin) {
-				let other_accordion = el.parentNode.querySelector(":scope > [data-expanded]");
+				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion > [aria-expanded='true']");
 				if (other_accordion) {
-					closeAccordion(other_accordion, () => { // el = .n-accordion
+					closeAccordion(other_accordion.parentNode, () => { // el = .n-accordion
 						updateRow();
 						openAccordion(el);
 					});
@@ -63,6 +63,7 @@
 			el.addEventListener("click", toggleAccordion);
 			el.parentElement.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
 			el.parentNode.dataset.ready = true;
+			el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true');
 		});
 	}
 	const doInit = () => {

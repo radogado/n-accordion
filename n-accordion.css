@@ -26,17 +26,17 @@
 .n-accordion > input[type=checkbox]:checked {
   cursor: zoom-out;
 }
-.n-accordion[data-ready]:not([data-expanded]) > .n-accordion__content,
+.n-accordion[data-ready] > .n-accordion__label:not([aria-expanded=true]) ~ .n-accordion__content,
 .n-accordion > input:not(:checked) ~ .n-accordion__content {
   display: none;
 }
-.n-accordion[data-expanded] > .n-accordion__label button,
+.n-accordion > .n-accordion__label[aria-expanded=true] button,
 .n-accordion input:checked ~ .n-accordion__label button {
   background: var(--control-active-bg, #fff);
   color: var(--control-active-color, #222);
   cursor: zoom-out;
 }
-.n-accordion[data-expanded] > .n-accordion__label button:after,
+.n-accordion > .n-accordion__label[aria-expanded=true] button:after,
 .n-accordion input:checked ~ .n-accordion__label button:after {
   transform: rotate(180deg);
 }
@@ -110,7 +110,7 @@
 .n-accordion.n-accordion--mobile > input[type=checkbox] {
     display: none;
   }
-  .n-accordion.n-accordion--mobile[data-ready]:not([data-expanded]) > .n-accordion__content,
+  .n-accordion.n-accordion--mobile[data-ready] > .n-accordion__label:not([aria-expanded=true]) ~ .n-accordion__content,
 .n-accordion.n-accordion--mobile > input:not(:checked) ~ .n-accordion__content {
     display: initial;
   }

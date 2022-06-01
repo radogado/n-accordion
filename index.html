@@ -37,7 +37,7 @@
 				<li>&lt;2 KB gzipped</li>
 
 			</ul>
-
+			<p><br></p>
 			<div>
 
 				<div>
@@ -72,19 +72,19 @@
 				</div>
 				<div>
 					<h2>Open by default</h2>
-					<div class="n-accordion" data-expanded="true">
+					<div class="n-accordion">
 						<input type="checkbox" checked>
-						<div role="heading" aria-level="2" class="n-accordion__label"><button>Open by default</button></div>
+						<div aria-expanded="true" role="heading" aria-level="2" class="n-accordion__label"><button>Open by default</button></div>
 						<div class="n-accordion__content">
 							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
 							<p><a href="#">Link third</a>.</p>
 						</div>
 					</div>
 					<div class="code">
-						<pre><code class="language-markup">&lt;div class="n-accordion" data-expanded="true"&gt;
+						<pre><code class="language-markup">&lt;div class="n-accordion"&gt;
 	&lt;input type="checkbox"&gt;
-	&lt;h2 class="n-accordion__label"&gt;
-		&lt;button aria-expanded="true"&gt; Label &lt;/button&gt;
+	&lt;h2 class="n-accordion__label" aria-expanded="true"&gt;
+		&lt;button&gt; Label &lt;/button&gt;
 	&lt;/h2&gt;
 	&lt;div class="n-accordion__content"&gt;
 		&lt;p&gt; Content. &lt;/p&gt;
@@ -134,10 +134,10 @@
 				</div>
 				<div class="_1/1">
 					<h2>Nested Accordions</h2>
-					<div class="n-accordion">
+					<div class="n-accordion n-accordion--close-nested">
 						<input type="checkbox">
 						<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
-						<div class="n-accordion__content">
+						<div class="n-accordion__content" role="group">
 							<div class="n-accordion">
 								<input type="checkbox">
 								<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
@@ -276,6 +276,8 @@
 				<li>Customize the label vertical margin by <b>--accordion-margin</b></li>
 				<li>Animation is instant when the system <b>Reduce motion</b> option is enabled</li>
 				<li>Customize the chevron by overriding <b>.n-accordion__label button:after { --icon: url(...) }</b> with a <a href="https://yoksel.github.io/url-encoder/">URL-encoded</a> SVG. It will be coloured by <b>--control-color</b></li>
+				<li><b>.n-accordion__content</b> with nested accordions can have <b>role="group"</b> to keep only one child accordion open at a time</li>
+				<li><b>.n-accordion.n-accordion--close-nested</b> will close all child accordions when closed</li>
 			</ul>
 
 			<h2>Links</h2>
