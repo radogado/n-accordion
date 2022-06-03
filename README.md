@@ -5,8 +5,10 @@ Native Accordion
 - Keyboard control
 - Accessibility compliance
 - Animation (when allowed)
-- CSS-only functionality
-- Pop-in option
+- CSS-only fallback
+- Pop-in grid
+- Accordion group
+- Themeable via CSS variables
 - RTL support
 - BEM classes
 - No dependencies
