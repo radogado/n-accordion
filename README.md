@@ -6,6 +6,7 @@ Native Accordion
 - Accessibility compliance
 - Animation (when allowed)
 - CSS-only fallback
+- Mobile-only accordion
 - Pop-in grid
 - Accordion group
 - Themeable via CSS variables
