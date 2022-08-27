@@ -51,8 +51,8 @@ $mobile: 600px;
 	> .n-accordion__label[aria-expanded='true'],
 	input:checked ~ .n-accordion__label {
 		 button {
-			background: var(--control-active-bg, #fff);
-			color: var(--control-active-color, #222);
+			background: var(--nui-control-active-bg, #fff);
+			color: var(--nui-control-active-color, #222);
 			cursor: zoom-out;
 
 			&:after {
@@ -82,8 +82,8 @@ $mobile: 600px;
 		cursor: pointer;
 		word-wrap: break-word;
 		word-break: break-all;
-		background-color: var(--control-bg, inherit);
-		color: var(--control-color, inherit);
+		background-color: var(--nui-control-bg, inherit);
+		color: var(--nui-control-color, inherit);
 		border: none;
 		width: 100%;
 		padding: calc(var(--line-height-em, 1.5rem) / 2);
@@ -105,7 +105,7 @@ $mobile: 600px;
 			-webkit-mask-size: 0.5em;
 			mask: var(--icon) center center no-repeat;
 			mask-size: 0.5em;
-			background-color: var(--control-color, #000);
+			background-color: var(--nui-control-color, #000);
 		}
 	}
 }
