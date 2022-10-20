@@ -148,7 +148,7 @@ $mobile: 600px;
 
 	.n-accordion.n-accordion--mobile {
 
-		.n-accordion__label,
+		> .n-accordion__label,
 		> input[type=checkbox] {
 			display: none;
 		}
