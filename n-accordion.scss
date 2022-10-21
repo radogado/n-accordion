@@ -1,5 +1,4 @@
 @charset "UTF-8";
-/* niui – Fold */
 
 $mobile: 600px;
 
@@ -9,10 +8,6 @@ $mobile: 600px;
 
 	&.n-accordion--inline {
 		display: inline-grid;
-	}
-
-	> * {
-		// overflow: auto; // Collapse margins // Crops focus ring
 	}
 
 	.n-accordion__label,
@@ -33,6 +28,7 @@ $mobile: 600px;
 	& > input[type="checkbox"] {
 		z-index: 1;
 		-webkit-appearance: none;
+		appearance: none;
 		margin: 0;
 
 		&:checked {
@@ -50,7 +46,7 @@ $mobile: 600px;
 
 	> .n-accordion__label[aria-expanded='true'],
 	input:checked ~ .n-accordion__label {
-		 button {
+		button {
 			background: var(--nui-control-active-bg, #fff);
 			color: var(--nui-control-active-color, #222);
 			cursor: zoom-out;
@@ -119,10 +115,6 @@ $mobile: 600px;
 
 	> * {
 		display: contents;
-
-		// > * {
-		// 	padding: .5rem;
-		// }
 	}
 
 	.n-accordion__content {
@@ -134,7 +126,7 @@ $mobile: 600px;
 		grid-column: initial;
 		grid-row: initial;
 	}
-	
+
 	> :not([data-ready]) .n-accordion__content {
 		display: none;
 	}

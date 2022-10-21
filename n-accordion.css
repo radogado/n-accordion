@@ -1,5 +1,3 @@
-@charset "UTF-8";
-/* niui – Fold */
 .n-accordion {
   display: grid;
   vertical-align: top;
@@ -21,6 +19,7 @@
 .n-accordion > input[type=checkbox] {
   z-index: 1;
   -webkit-appearance: none;
+  appearance: none;
   margin: 0;
 }
 .n-accordion > input[type=checkbox]:checked {
