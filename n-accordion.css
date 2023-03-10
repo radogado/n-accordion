@@ -61,6 +61,7 @@
   padding-inline-end: 1.5em;
   text-align: start;
   font: inherit;
+  border-radius: var(--nui-border-radius);
 }
 .n-accordion__label button:after {
   transition: transform 0.2s ease-in-out;
