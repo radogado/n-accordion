@@ -1,0 +1,45 @@
+<meta charset="utf8">
+<style>
+	.expander {
+		display: grid;
+		grid-template-rows: auto 0fr;
+		align-content: start;
+		transition: grid-template-rows .25s ease-in-out;
+		overflow: auto;
+	}
+
+	.content {
+		min-height: 0;
+	}
+
+	:checked~.expander {
+		grid-template-rows: auto 1fr;
+	}
+
+</style>
+
+<input type="checkbox"></button>
+
+<div>Something before 🙃</div>
+
+<div class="expander">
+	<div>Label</div>
+	<div class="content">
+		This content should…<br />
+		toggle! 👻
+		This content should…<br />
+		toggle! 👻
+		This content should…<br />
+		toggle! 👻
+		This content should…<br />
+		toggle! 👻
+		This content should…<br />
+		toggle! 👻
+		This content should…<br />
+		toggle! 👻
+		This content should…<br />
+		toggle! 👻
+	</div>
+</div>
+
+<div>Something after 🙂</div>
