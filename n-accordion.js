@@ -67,7 +67,7 @@
 		});
 	}
 	const doInit = () => {
-		typeof registerComponent === "function" ? registerComponent("n-accordion", init) : init();
+		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init) : init();
 	};
 	if (document.readyState !== "loading") {
 		doInit();
