@@ -15,7 +15,6 @@
 	:checked~.expander {
 		grid-template-rows: auto 1fr;
 	}
-
 </style>
 
 <input type="checkbox"></button>
@@ -43,3 +42,26 @@
 </div>
 
 <div>Something after 🙂</div>
+
+<style>
+	.carousel > * {
+		display: grid;
+		grid-template-rows: auto 0fr;
+		align-content: start;
+		transition: grid-template-rows .25s ease-in-out;
+		overflow: auto;
+	}
+
+	.content {
+		min-height: 0;
+	}
+
+	:checked~.expander {
+		grid-template-rows: auto 1fr;
+	}
+</style>
+
+<div class="carousel">
+	<div>A</div>
+	<div><br>B<br>&nbsp;</div>
+</div>

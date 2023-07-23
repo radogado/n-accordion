@@ -4,30 +4,30 @@
 	const accordionContent = el => el.querySelector(":scope > .n-accordion__content");
 	const openAccordion = (el) => {
 		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.height = 0;
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
-			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-			};
-		});
+		let wrapper = el.parentNode;
+		wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
+		// window.requestAnimationFrame(() => {
+		// 	el.style.height = 0;
+		// 	el.style.overflow = "hidden";
+		// 	el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
+		// 		el.style.height = el.style.overflow = "";
+		// 	};
+		// });
 	};
 	const closeAccordion = (el, callback) => {
 		el = accordionContent(el);
-		window.requestAnimationFrame(() => {
-			el.style.overflow = "hidden";
-			let wrapper = el.parentNode;
-			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
-				el.style.height = el.style.overflow = "";
-				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
-				typeof callback !== 'function' || callback();
-				if (wrapper.classList.contains('n-accordion--close-nested')) {
-					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
-				}
-			};
-		});
+		let wrapper = el.parentNode;
+		wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
+		typeof callback !== 'function' || callback();
+		if (wrapper.classList.contains('n-accordion--close-nested')) {
+			el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
+		}
+		// window.requestAnimationFrame(() => {
+		// 	el.style.overflow = "hidden";
+		// 	el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
+		// 		el.style.height = el.style.overflow = "";
+		// 	};
+		// });
 	};
 	const toggleAccordion = (e) => {
 		let el = e.target.closest('.n-accordion'); // el = .n-accordion

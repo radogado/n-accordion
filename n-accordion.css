@@ -1,8 +1,20 @@
 .n-accordion {
   display: grid;
+  grid-template-rows: auto 0fr;
+  transition: grid-template-rows var(--duration) ease-in-out;
+  align-content: start;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .n-accordion {
+    --duration: .2s;
+  }
 }
 .n-accordion--inline {
   display: inline-grid;
+}
+.n-accordion__content {
+  overflow: hidden;
+  min-height: 0;
 }
 .n-accordion__label, .n-accordion > input[type=checkbox] {
   grid-column-start: 1;
@@ -24,9 +36,11 @@
 .n-accordion > input[type=checkbox]:checked {
   cursor: zoom-out;
 }
-.n-accordion[data-ready] > .n-accordion__label:not([aria-expanded=true]) ~ .n-accordion__content,
-.n-accordion > input:not(:checked) ~ .n-accordion__content {
-  display: none;
+.n-accordion[data-ready]:has(> [aria-expanded=true]), .n-accordion:has(> input:checked) {
+  grid-template-rows: auto 1fr;
+}
+.n-accordion[data-ready]:has(> [aria-expanded=true]) > .n-accordion__content, .n-accordion:has(> input:checked) > .n-accordion__content {
+  overflow: auto;
 }
 .n-accordion__label[aria-expanded=true] button, input:checked ~ .n-accordion__label button {
   background: var(--nui-control-active-bg, #fff);
@@ -61,7 +75,7 @@
   box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
 }
 .n-accordion__label button:after {
-  transition: transform 0.2s ease-in-out;
+  transition: transform var(--duration) ease-in-out;
   content: "";
   position: absolute;
   display: block;
@@ -82,11 +96,7 @@
   grid-template: auto/repeat(var(--n-popin-columns), auto);
   column-gap: 0.5rem;
 }
-.n-accordion__popin > * {
-  display: contents;
-}
 .n-accordion__popin .n-accordion__content {
-  grid-row: var(--n-popin-open-row, 0);
   grid-column: 1/-1;
 }
 .n-accordion__popin .n-accordion__label {
@@ -107,6 +117,15 @@
   .n-accordion--mobile[data-ready] > .n-accordion__label:not([aria-expanded=true]) ~ .n-accordion__content,
   .n-accordion--mobile > input:not(:checked) ~ .n-accordion__content {
     display: initial;
+  }
+}
+
+@supports not selector(:has(*)) {
+  .n-accordion {
+    grid-template-rows: auto;
+  }
+  :not([aria-expanded=true]) ~ .n-accordion__content {
+    display: none;
   }
 }
 

@@ -4,10 +4,23 @@ $mobile: 600px;
 
 .n-accordion {
 	display: grid;
-	// vertical-align: top;
+	grid-template-rows: auto 0fr;
+	transition: grid-template-rows var(--duration) ease-in-out;
+
+	@media (prefers-reduced-motion: no-preference) {
+		--duration: .2s;
+	}
+
+	// overflow: auto;
+	align-content: start;
 
 	&--inline {
 		display: inline-grid;
+	}
+
+	&__content {
+		overflow: hidden;
+		min-height: 0;
 	}
 
 	&__label,
@@ -36,14 +49,16 @@ $mobile: 600px;
 		}
 	}
 
-	&[data-ready] > &__label:not([aria-expanded='true']) ~ ,
-	> input:not(:checked) ~ {
-		.n-accordion__content {
-			display: none;
+	&[data-ready]:has(> [aria-expanded='true']),
+	&:has(> input:checked) {
+		grid-template-rows: auto 1fr;
+
+		> .n-accordion__content {
+			overflow: auto;
 		}
 	}
 
-	> &__label[aria-expanded='true'],
+	&__label[aria-expanded='true'],
 	input:checked ~ &__label {
 		button {
 			background: var(--nui-control-active-bg, #fff);
@@ -87,7 +102,7 @@ $mobile: 600px;
 			box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
 
 			&:after {
-				transition: transform 0.2s ease-in-out;
+				transition: transform var(--duration) ease-in-out;
 				content: "";
 				position: absolute;
 				display: block;
@@ -113,11 +128,11 @@ $mobile: 600px;
 		column-gap: 0.5rem;
 
 		> * {
-			display: contents;
+			// display: contents;
 		}
 
 		.n-accordion__content {
-			grid-row: var(--n-popin-open-row, 0);
+			// grid-row: var(--n-popin-open-row, 0);
 			grid-column: 1/-1;
 		}
 
@@ -153,4 +168,14 @@ $mobile: 600px;
 
 	}
 
+}
+
+@supports not selector(:has(*)) {
+	.n-accordion {
+		grid-template-rows: auto;
+	}
+
+	:not([aria-expanded="true"]) ~ .n-accordion__content {
+		display: none;
+	}
 }
