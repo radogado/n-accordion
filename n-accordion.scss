@@ -55,6 +55,7 @@ $mobile: 600px;
 
 		> .n-accordion__content {
 			overflow: auto;
+			display: initial;
 		}
 	}
 
@@ -128,12 +129,13 @@ $mobile: 600px;
 		column-gap: 0.5rem;
 
 		> * {
-			// display: contents;
+			display: contents;
 		}
 
 		.n-accordion__content {
-			// grid-row: var(--n-popin-open-row, 0);
+			grid-row: var(--n-popin-open-row, 0);
 			grid-column: 1/-1;
+			display: none;
 		}
 
 		.n-accordion__label {
