@@ -11,7 +11,7 @@ $mobile: 600px;
 	}
 
 	&__label,
-	& > input[type="checkbox"] {
+	& > input {
 		// Overlay the checkbox over the label
 
 		grid-column-start: 1;
@@ -25,7 +25,7 @@ $mobile: 600px;
 		margin: var(--accordion-margin, .25em) 0;
 	}
 
-	& > input[type="checkbox"] {
+	& > input {
 		z-index: 1;
 		-webkit-appearance: none;
 		appearance: none;
@@ -36,14 +36,14 @@ $mobile: 600px;
 		}
 	}
 
-	&[data-ready] > &__label:not([aria-expanded='true']) ~ ,
+	&[data-ready]:not([data-expanded]) > ,
 	> input:not(:checked) ~ {
 		.n-accordion__content {
 			display: none;
 		}
 	}
 
-	> &__label[aria-expanded='true'],
+	[data-expanded],
 	input:checked ~ &__label {
 		button {
 			background: var(--nui-control-active-bg, #fff);
@@ -126,7 +126,7 @@ $mobile: 600px;
 			grid-row: initial;
 		}
 
-		> :not([data-ready]) .n-accordion__content {
+		> :not([data-ready]) :not(:checked) ~ .n-accordion__content {
 			display: none;
 		}
 	}
@@ -140,11 +140,11 @@ $mobile: 600px;
 		&--mobile {
 
 			> .n-accordion__label,
-			> input[type=checkbox] {
+			> input {
 				display: none;
 			}
 
-			&[data-ready] > .n-accordion__label:not([aria-expanded='true']) ~ .n-accordion__content,
+			&[data-ready]:not([data-expanded]) > .n-accordion__content,
 			> input:not(:checked) ~ .n-accordion__content {
 				display: initial;
 			}

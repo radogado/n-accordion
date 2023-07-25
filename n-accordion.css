@@ -4,7 +4,7 @@
 .n-accordion--inline {
   display: inline-grid;
 }
-.n-accordion__label, .n-accordion > input[type=checkbox] {
+.n-accordion__label, .n-accordion > input {
   grid-column-start: 1;
   grid-row-start: 1;
   width: auto;
@@ -15,25 +15,25 @@
   text-align: initial;
   margin: var(--accordion-margin, 0.25em) 0;
 }
-.n-accordion > input[type=checkbox] {
+.n-accordion > input {
   z-index: 1;
   -webkit-appearance: none;
   appearance: none;
   margin: 0;
 }
-.n-accordion > input[type=checkbox]:checked {
+.n-accordion > input:checked {
   cursor: zoom-out;
 }
-.n-accordion[data-ready] > .n-accordion__label:not([aria-expanded=true]) ~ .n-accordion__content,
+.n-accordion[data-ready]:not([data-expanded]) > .n-accordion__content,
 .n-accordion > input:not(:checked) ~ .n-accordion__content {
   display: none;
 }
-.n-accordion__label[aria-expanded=true] button, input:checked ~ .n-accordion__label button {
+.n-accordion [data-expanded] button, input:checked ~ .n-accordion__label button {
   background: var(--nui-control-active-bg, #fff);
   color: var(--nui-control-active-color, #222);
   cursor: zoom-out;
 }
-.n-accordion__label[aria-expanded=true] button:after, input:checked ~ .n-accordion__label button:after {
+.n-accordion [data-expanded] button:after, input:checked ~ .n-accordion__label button:after {
   transform: rotate(180deg);
 }
 .n-accordion .n-accordion {
@@ -93,7 +93,7 @@
   grid-column: initial;
   grid-row: initial;
 }
-.n-accordion__popin > :not([data-ready]) .n-accordion__content {
+.n-accordion__popin > :not([data-ready]) :not(:checked) ~ .n-accordion__content {
   display: none;
 }
 @media (min-width: 600px) {
@@ -101,10 +101,10 @@
     --n-popin-columns: 3;
   }
   .n-accordion--mobile > .n-accordion__label,
-  .n-accordion--mobile > input[type=checkbox] {
+  .n-accordion--mobile > input {
     display: none;
   }
-  .n-accordion--mobile[data-ready] > .n-accordion__label:not([aria-expanded=true]) ~ .n-accordion__content,
+  .n-accordion--mobile[data-ready]:not([data-expanded]) > .n-accordion__content,
   .n-accordion--mobile > input:not(:checked) ~ .n-accordion__content {
     display: initial;
   }

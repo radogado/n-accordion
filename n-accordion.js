@@ -8,7 +8,8 @@
 			el.style.height = 0;
 			el.style.overflow = "hidden";
 			let wrapper = el.parentNode;
-			wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", true);
+			wrapper.querySelector(":scope > .n-accordion__label button").setAttribute("aria-expanded", true);
+			wrapper.dataset.expanded = true;
 			el.animate([{ height: 0 }, { height: `${el.scrollHeight}px` }], animate_options(wrapper)).onfinish = () => {
 				el.style.height = el.style.overflow = "";
 			};
@@ -21,17 +22,19 @@
 			let wrapper = el.parentNode;
 			el.animate([{ height: `${el.scrollHeight}px` }, { height: 0 }], animate_options(wrapper)).onfinish = () => {
 				el.style.height = el.style.overflow = "";
-				wrapper.querySelector(":scope > .n-accordion__label").setAttribute("aria-expanded", false);
+				wrapper.querySelector(":scope > .n-accordion__label button").setAttribute("aria-expanded", false);
+				delete wrapper.dataset.expanded;
 				typeof callback !== 'function' || callback();
 				if (wrapper.classList.contains('n-accordion--close-nested')) {
-					el.querySelectorAll(".n-accordion__label[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
+					el.querySelectorAll(".n-accordion__label button[aria-expanded='true']").forEach(el => el.setAttribute("aria-expanded", false));
+					el.querySelectorAll(".n-accordion").forEach(el => delete el.dataset.expanded);
 				}
 			};
 		});
 	};
 	const toggleAccordion = (e) => {
-		let el = e.target.closest('.n-accordion'); // el = .n-accordion
-		if (!el.querySelector(":scope > [aria-expanded='true']")) {
+		let el = e.target.closest('.n-accordion');
+		if (!el.dataset.expanded) {
 			let popin = el.closest(".n-accordion__popin");
 			const updateRow = () => {
 				if (popin) {
@@ -40,9 +43,9 @@
 				}
 			};
 			if (el.parentNode.matches('[role="group"]') || popin) {
-				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion > [aria-expanded='true']");
+				let other_accordion = el.parentNode.querySelector(":scope > .n-accordion[data-expanded]");
 				if (other_accordion) {
-					closeAccordion(other_accordion.parentNode, () => { // el = .n-accordion
+					closeAccordion(other_accordion, () => {
 						updateRow();
 						openAccordion(el);
 					});
@@ -59,15 +62,20 @@
 	};
 
 	function init(host = document) {
-		host.querySelectorAll(".n-accordion:not([data-ready]) > .n-accordion__label").forEach((el) => {
-			el.addEventListener("click", toggleAccordion);
-			el.parentElement.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
-			el.parentNode.dataset.ready = true;
-			el.setAttribute('aria-expanded', el.getAttribute('aria-expanded') === 'true');
+		host.querySelectorAll(".n-accordion:not([data-ready])").forEach((el) => {
+			el.querySelector(":scope > input")?.remove(); // Remove CSS-only solution
+			el.dataset.ready = true;
+			let button = el.querySelector(':scope > .n-accordion__label button');
+			button.addEventListener("click", toggleAccordion);
+			if (button.getAttribute('aria-expanded') === 'true') {
+				el.dataset.expanded = true;
+			} else {
+				button.setAttribute('aria-expanded', false);	
+			}
 		});
 	}
 	const doInit = () => {
-		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init) : init();
+		(typeof nui !== 'undefined' && typeof nui.registerComponent === "function") ? nui.registerComponent("n-accordion", init): init();
 	};
 	if (document.readyState !== "loading") {
 		doInit();
