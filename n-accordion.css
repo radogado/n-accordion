@@ -28,12 +28,14 @@
 .n-accordion > input:not(:checked) ~ .n-accordion__content {
   display: none;
 }
-.n-accordion [data-expanded] button, input:checked ~ .n-accordion__label button {
+.n-accordion[data-expanded] > .n-accordion__label button,
+.n-accordion input:checked ~ .n-accordion__label button {
   background: var(--nui-control-active-bg, #fff);
   color: var(--nui-control-active-color, #222);
   cursor: zoom-out;
 }
-.n-accordion [data-expanded] button:after, input:checked ~ .n-accordion__label button:after {
+.n-accordion[data-expanded] > .n-accordion__label button:after,
+.n-accordion input:checked ~ .n-accordion__label button:after {
   transform: rotate(180deg);
 }
 .n-accordion .n-accordion {
@@ -78,22 +80,23 @@
 }
 .n-accordion__popin {
   display: grid;
+  align-items: start;
   --n-popin-columns: 1;
-  grid-template: auto/repeat(var(--n-popin-columns), auto);
+  grid-template: auto/repeat(var(--n-popin-columns), 1fr);
   column-gap: 0.5rem;
 }
-.n-accordion__popin > * {
+.n-accordion__popin > [data-ready] {
   display: contents;
 }
 .n-accordion__popin .n-accordion__content {
   grid-row: var(--n-popin-open-row, 0);
   grid-column: 1/-1;
 }
-.n-accordion__popin .n-accordion__label {
+.n-accordion__popin [data-ready] > .n-accordion__label {
   grid-column: initial;
   grid-row: initial;
 }
-.n-accordion__popin > :not([data-ready]) :not(:checked) ~ .n-accordion__content {
+.n-accordion__popin > :not([data-ready]) input:not(:checked) ~ .n-accordion__content {
   display: none;
 }
 @media (min-width: 600px) {
