@@ -3,156 +3,140 @@
 $mobile: 600px;
 
 .n-accordion {
-	display: grid;
-	// vertical-align: top;
+  display: grid;
 
-	&--inline {
-		display: inline-grid;
-	}
+  &--inline {
+    display: inline-grid;
+  }
 
-	&__label,
-	& > input {
-		// Overlay the checkbox over the label
+  &__label,
+  & > input {
+    grid-column: 1;
+    grid-row: 1;
+    cursor: zoom-in;
+    border: none;
+    font: inherit;
+    margin: var(--accordion-margin, 0.25em) 0;
+  }
 
-		grid-column-start: 1;
-		grid-row-start: 1;
-		width: auto;
-		height: auto;
-		cursor: zoom-in;
-		border: none;
-		font: inherit;
-		text-align: initial;
-		margin: var(--accordion-margin, .25em) 0;
-	}
+  & > input {
+    z-index: 1;
+    -webkit-appearance: none;
+    appearance: none;
+    margin: 0;
 
-	& > input {
-		z-index: 1;
-		-webkit-appearance: none;
-		appearance: none;
-		margin: 0;
+    &:checked {
+      cursor: zoom-out;
+    }
+  }
 
-		&:checked {
-			cursor: zoom-out;
-		}
-	}
+  &[data-ready]:not([data-expanded]) >,
+  > input:not(:checked) ~ {
+    .n-accordion__content {
+      display: none;
+    }
+  }
 
-	&[data-ready]:not([data-expanded]) > ,
-	> input:not(:checked) ~ {
-		.n-accordion__content {
-			display: none;
-		}
-	}
+  &[data-expanded] >,
+  input:checked ~ {
+    .n-accordion__label {
+      button {
+        background: var(--nui-control-active-bg, #fff);
+        color: var(--nui-control-active-color, #222);
+        cursor: zoom-out;
 
-	&[data-expanded] >,
-	input:checked ~ {
-		.n-accordion__label {
-			button {
-				background: var(--nui-control-active-bg, #fff);
-				color: var(--nui-control-active-color, #222);
-				cursor: zoom-out;
+        &:after {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
 
-				&:after {
-					transform: rotate(180deg);
-				}
-			}
-		}
-	}
+  & & {
+    margin: 0 0.5em;
+  }
 
-	& & {
-		// Nested accordions
+  &__label {
+    user-select: none;
+    cursor: zoom-in;
+    position: relative;
 
-		margin: 0 .5em;
+    button {
+      cursor: pointer;
+      word-wrap: break-word;
+      word-break: break-all;
+      background-color: var(--nui-control-bg, inherit);
+      color: var(--nui-control-color, inherit);
+      border: none;
+      width: 100%;
+      padding: calc(var(--line-height-em, 1.5rem) / 2);
+      padding-inline-end: 1.5em;
+      text-align: start;
+      font: inherit;
+      border-radius: var(--nui-border-radius);
+      box-shadow:
+        0 0 0 var(--nui-border-size) var(--nui-border-color),
+        0 0 var(--nui-shadow-blur)
+          calc(var(--nui-border-size) + var(--nui-shadow-size))
+          var(--nui-shadow-color);
 
-	}
+      &:after {
+        transition: transform 0.2s ease-in-out;
+        content: "";
+        position: absolute;
+        inset-inline-end: 0.5em;
+        top: calc(50% - 0.5em);
+        width: 1em;
+        height: 1em;
+        --icon: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000'/%3E%3C/svg%3E");
+        -webkit-mask: var(--icon) center/0.5em no-repeat;
+        mask: var(--icon) center/0.5em no-repeat;
+        background-color: var(--nui-control-color, #000);
+      }
+    }
+  }
 
-	&__label {
+  &__popin {
+    display: grid;
+    align-items: start;
+    --n-popin-columns: 1;
+    grid-template: auto / repeat(var(--n-popin-columns), 1fr);
+    column-gap: 0.5rem;
 
-		user-select: none;
-		cursor: zoom-in;
-		letter-spacing: initial;
-		position: relative;
+    > [data-ready] {
+      display: contents;
+    }
 
-		button {
+    .n-accordion__content {
+      grid-row: var(--n-popin-open-row, 0);
+      grid-column: 1/-1;
+    }
 
-			cursor: pointer;
-			word-wrap: break-word;
-			word-break: break-all;
-			background-color: var(--nui-control-bg, inherit);
-			color: var(--nui-control-color, inherit);
-			border: none;
-			width: 100%;
-			padding: calc(var(--line-height-em, 1.5rem) / 2);
-			padding-inline-end: 1.5em;
-			text-align: start;
-			font: inherit;
-			border-radius: var(--nui-border-radius);
-			box-shadow: 0 0 0 var(--nui-border-size) var(--nui-border-color), 0 0 var(--nui-shadow-blur) calc(var(--nui-border-size) + var(--nui-shadow-size)) var(--nui-shadow-color);
+    [data-ready] > .n-accordion__label {
+      grid-column: initial;
+      grid-row: initial;
+    }
 
-			&:after {
-				transition: transform 0.2s ease-in-out;
-				content: "";
-				position: absolute;
-				display: block;
-				inset-inline-end: 0.5em;
-				top: calc(50% - 0.5em);
-				width: 1em;
-				height: 1em;
-				--icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
-				-webkit-mask: var(--icon) center center no-repeat;
-				-webkit-mask-size: 0.5em;
-				mask: var(--icon) center center no-repeat;
-				mask-size: 0.5em;
-				background-color: var(--nui-control-color, #000);
-			}
-		}
-	}
+    > :not([data-ready]) input:not(:checked) ~ .n-accordion__content {
+      display: none;
+    }
+  }
 
-	&__popin {
-		display: grid;
-		align-items: start;
-		--n-popin-columns: 1;
-		grid-template: auto / repeat(var(--n-popin-columns), 1fr);
-		column-gap: 0.5rem;
+  @media (min-width: $mobile) {
+    &__popin {
+      --n-popin-columns: 3;
+    }
 
-		> [data-ready] {
-			display: contents;
-		}
+    &--mobile {
+      > .n-accordion__label,
+      > input {
+        display: none;
+      }
 
-		.n-accordion__content {
-			grid-row: var(--n-popin-open-row, 0);
-			grid-column: 1/-1;
-		}
-
-		[data-ready] > .n-accordion__label {
-			grid-column: initial;
-			grid-row: initial;
-		}
-
-		> :not([data-ready]) input:not(:checked) ~ .n-accordion__content {
-			display: none;
-		}
-	}
-
-	@media (min-width: $mobile) {
-
-		&__popin {
-			--n-popin-columns: 3;
-		}
-
-		&--mobile {
-
-			> .n-accordion__label,
-			> input {
-				display: none;
-			}
-
-			&[data-ready]:not([data-expanded]) > .n-accordion__content,
-			> input:not(:checked) ~ .n-accordion__content {
-				display: initial;
-			}
-
-		}
-
-	}
-
+      &[data-ready]:not([data-expanded]) > .n-accordion__content,
+      > input:not(:checked) ~ .n-accordion__content {
+        display: initial;
+      }
+    }
+  }
 }

@@ -5,14 +5,11 @@
   display: inline-grid;
 }
 .n-accordion__label, .n-accordion > input {
-  grid-column-start: 1;
-  grid-row-start: 1;
-  width: auto;
-  height: auto;
+  grid-column: 1;
+  grid-row: 1;
   cursor: zoom-in;
   border: none;
   font: inherit;
-  text-align: initial;
   margin: var(--accordion-margin, 0.25em) 0;
 }
 .n-accordion > input {
@@ -44,7 +41,6 @@
 .n-accordion__label {
   user-select: none;
   cursor: zoom-in;
-  letter-spacing: initial;
   position: relative;
 }
 .n-accordion__label button {
@@ -66,16 +62,13 @@
   transition: transform 0.2s ease-in-out;
   content: "";
   position: absolute;
-  display: block;
   inset-inline-end: 0.5em;
   top: calc(50% - 0.5em);
   width: 1em;
   height: 1em;
-  --icon: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='UTF-8'%3F%3E%3Csvg version='1.1' viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000' fill-rule='nonzero'/%3E%3C/g%3E%3C/svg%3E%0A");
-  -webkit-mask: var(--icon) center center no-repeat;
-  -webkit-mask-size: 0.5em;
-  mask: var(--icon) center center no-repeat;
-  mask-size: 0.5em;
+  --icon: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' xmlns='http://www.w3.org/2000/svg'%3E%3Cpolygon transform='translate(8 8) rotate(180) translate(-8 -8)' points='8 0 16 16 0 16' fill='%23000'/%3E%3C/svg%3E");
+  -webkit-mask: var(--icon) center/0.5em no-repeat;
+  mask: var(--icon) center/0.5em no-repeat;
   background-color: var(--nui-control-color, #000);
 }
 .n-accordion__popin {

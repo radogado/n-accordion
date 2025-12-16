@@ -1,67 +1,90 @@
 <html lang="en">
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes"
+    />
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <title>Native Accordion</title>
+    <meta
+      name="description"
+      content="A native, progressively enhanced, versatile accordion component"
+    />
 
-	<head>
-		<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5,user-scalable=yes" />
-		<meta charset="utf-8">
-		<link rel=icon href=./favicon.ico>
-		<title>Native Accordion</title>
-		<meta name="description" content="A native, progressively enhanced, versatile accordion component">
+    <link
+      rel="styleSheet"
+      href="n-accordion.css"
+      type="text/css"
+      media="screen"
+    />
+    <link
+      rel="styleSheet"
+      href="demo/demo.css"
+      type="text/css"
+      media="screen"
+    />
+    <link href="demo/prism-tomorrow.min.css" rel="styleSheet" />
 
-		<link rel="styleSheet" href="n-accordion.css" type="text/css" media="screen">
-		<link rel="styleSheet" href="demo/demo.css" type="text/css" media="screen">
-		<link href="demo/prism-tomorrow.min.css" rel="styleSheet" />
+    <script src="demo/prism.js" defer></script>
+    <script src="n-accordion.js" type="module"></script>
+  </head>
 
-		<script src="demo/prism.js" defer></script>
-		<script src="n-accordion.js" type="text/javascript" module></script>
+  <body>
+    <main>
+      <h1 class="headline-version">Native Accordion</h1>
 
-	</head>
+      <ul>
+        <li>Expand/collapse content</li>
+        <li>Nested accordions</li>
+        <li>Keyboard control</li>
+        <li>Accessibility compliance</li>
+        <li>Animation (when allowed)</li>
+        <li>CSS-only fallback</li>
+        <li>Mobile-only accordion</li>
+        <li>Pop-in grid</li>
+        <li>Accordion group</li>
+        <li>Themeable via CSS variables</li>
+        <li>RTL support</li>
+        <li>BEM classes</li>
+        <li>No dependencies</li>
+        <li>&lt;2 KB gzipped</li>
+      </ul>
+      <p><br /></p>
+      <div>
+        <div>
+          <div class="n-accordion">
+            <input type="checkbox" aria-label="Toggle accordion" />
+            <h2 class="n-accordion__label">
+              <button
+                id="accordion-1-button"
+                aria-controls="accordion-1-content"
+              >
+                Accordion
+              </button>
+            </h2>
 
-	<body>
+            <div
+              class="n-accordion__content"
+              role="region"
+              id="accordion-1-content"
+              aria-labelledby="accordion-1-button"
+            >
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.
+              </p>
 
-		<main>
+              <p><a href="#">Demo Link</a>.</p>
+            </div>
+          </div>
 
-			<h1 class="headline-version">Native Accordion</h1>
-
-			<ul>
-				
-				<li>Expand/collapse content</li>
-				<li>Nested accordions</li>
-				<li>Keyboard control</li>
-				<li>Accessibility compliance</li>
-				<li>Animation (when allowed)</li>
-				<li>CSS-only fallback</li>
-				<li>Mobile-only accordion</li>
-				<li>Pop-in grid</li>
-				<li>Accordion group</li>
-				<li>Themeable via CSS variables</li>
-				<li>RTL support</li>
-				<li>BEM classes</li>
-				<li>No dependencies</li>
-				<li>&lt;2 KB gzipped</li>
-
-			</ul>
-			<p><br></p>
-			<div>
-
-				<div>
-
-					<div class="n-accordion">
-
-						<input type="checkbox" aria-label="Toggle accordion">
-						<h2 class="n-accordion__label"><button id="accordion-1-button" aria-controls="accordion-1-content"> Accordion </button></h2>
-
-						<div class="n-accordion__content" role="region" id="accordion-1-content" aria-labelledby="accordion-1-button">
-
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-							<p><a href="#">Demo Link</a>.</p>
-
-						</div>
-
-					</div>
-
-			<div class="code">
-				<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
+          <div class="code">
+            <pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
 	&lt;input type=&quot;checkbox&quot; aria-label=&quot;Toggle accordion&quot;&gt;
 	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
 		&lt;button id="accordion-1-button" aria-controls="accordion-1-content"&gt;
@@ -72,21 +95,40 @@
 		&lt;p&gt;Content&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-			</div>
-					
-				</div>
-				<div>
-					<h2>Open by default</h2>
-					<div class="n-accordion">
-						<input type="checkbox" aria-label="Toggle accordion" checked>
-						<div role="heading" aria-level="2" class="n-accordion__label"><button aria-expanded="true" id="accordion-2-button" aria-controls="accordion-2-content">Open by default</button></div>
-						<div class="n-accordion__content" role="region" id="accordion-2-content" aria-labelledby="accordion-2-button">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-							<p><a href="#">Link third</a>.</p>
-						</div>
-					</div>
-					<div class="code">
-						<pre><code class="language-markup">&lt;div class="n-accordion"&gt;
+          </div>
+        </div>
+        <div>
+          <h2>Open by default</h2>
+          <div class="n-accordion">
+            <input type="checkbox" aria-label="Toggle accordion" checked />
+            <div role="heading" aria-level="2" class="n-accordion__label">
+              <button
+                aria-expanded="true"
+                id="accordion-2-button"
+                aria-controls="accordion-2-content"
+              >
+                Open by default
+              </button>
+            </div>
+            <div
+              class="n-accordion__content"
+              role="region"
+              id="accordion-2-content"
+              aria-labelledby="accordion-2-button"
+            >
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+                enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor
+                in reprehenderit in voluptate velit esse cillum dolore eu fugiat
+                nulla pariatur.
+              </p>
+              <p><a href="#">Link third</a>.</p>
+            </div>
+          </div>
+          <div class="code">
+            <pre><code class="language-markup">&lt;div class="n-accordion"&gt;
 	&lt;input type="checkbox" checked aria-label="Toggle accordion"&gt;
 	&lt;h2 class="n-accordion__label"&gt;
 		&lt;button id="accordion-1-button" aria-controls="accordion-1-content" aria-expanded="true"&gt;
@@ -97,38 +139,38 @@
 		&lt;p&gt;Content&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-					</div>
-				</div>
-				<div>
-					<h2>Accordion Group</h2>
-					<div role="group">
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>Accordion 1</button></h2>
-							<div class="n-accordion__content" role="region">
-								<p>Content 1</p>
-								<p><a href="#">Link fourth</a>.</p>
-							</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>Accordion 2</button></h2>
-							<div class="n-accordion__content" role="region">
-								<p>Content 2</p>
-								<p><a href="#">Link fifth</a>.</p>
-							</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>Accordion 3</button></h2>
-							<div class="n-accordion__content" role="region">
-								<p>Content 3</p>
-								<p><a href="#">Link sixth</a>.</p>
-							</div>
-						</div>
-					</div>
-					<div class="code">
-						<pre><code class="language-markup">&lt;div role="group"&gt;
+          </div>
+        </div>
+        <div>
+          <h2>Accordion Group</h2>
+          <div role="group">
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>Accordion 1</button></h2>
+              <div class="n-accordion__content" role="region">
+                <p>Content 1</p>
+                <p><a href="#">Link fourth</a>.</p>
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>Accordion 2</button></h2>
+              <div class="n-accordion__content" role="region">
+                <p>Content 2</p>
+                <p><a href="#">Link fifth</a>.</p>
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>Accordion 3</button></h2>
+              <div class="n-accordion__content" role="region">
+                <p>Content 3</p>
+                <p><a href="#">Link sixth</a>.</p>
+              </div>
+            </div>
+          </div>
+          <div class="code">
+            <pre><code class="language-markup">&lt;div role="group"&gt;
 	&lt;div class="n-accordion"&gt;
 		...
 	&lt;/div&gt;
@@ -137,35 +179,55 @@
 	&lt;/div&gt;
 	...
 &lt;/div&gt;</code></pre>
-					</div>
-				</div>
-				<div class="_1/1">
-					<h2>Nested Accordions</h2>
-					<div class="n-accordion n-accordion--close-nested">
-						<input type="checkbox" aria-label="Toggle accordion">
-						<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
-						<div class="n-accordion__content" role="group">
-							<div class="n-accordion">
-								<input type="checkbox" aria-label="Toggle accordion">
-								<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
-								<div class="n-accordion__content" role="region">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									<p><a href="#">Link seventh</a>.</p>
-								</div>
-							</div>
-							<div class="n-accordion">
-								<input type="checkbox" aria-label="Toggle accordion">
-								<h2 class="n-accordion__label"><button>Nested Accordions</button></h2>
-								<div class="n-accordion__content" role="region">
-									<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-									<p><a href="#">Link eighth</a>.</p>
-								</div>
-							</div>
-						</div>
-					</div>
-					
-			<div class="code">
-				<pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
+          </div>
+        </div>
+        <div class="_1/1">
+          <h2>Nested Accordions</h2>
+          <div class="n-accordion n-accordion--close-nested">
+            <input type="checkbox" aria-label="Toggle accordion" />
+            <h2 class="n-accordion__label">
+              <button>Nested Accordions</button>
+            </h2>
+            <div class="n-accordion__content" role="group">
+              <div class="n-accordion">
+                <input type="checkbox" aria-label="Toggle accordion" />
+                <h2 class="n-accordion__label">
+                  <button>Nested Accordions</button>
+                </h2>
+                <div class="n-accordion__content" role="region">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                  </p>
+                  <p><a href="#">Link seventh</a>.</p>
+                </div>
+              </div>
+              <div class="n-accordion">
+                <input type="checkbox" aria-label="Toggle accordion" />
+                <h2 class="n-accordion__label">
+                  <button>Nested Accordions</button>
+                </h2>
+                <div class="n-accordion__content" role="region">
+                  <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna
+                    aliqua. Ut enim ad minim veniam, quis nostrud exercitation
+                    ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                    Duis aute irure dolor in reprehenderit in voluptate velit
+                    esse cillum dolore eu fugiat nulla pariatur.
+                  </p>
+                  <p><a href="#">Link eighth</a>.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="code">
+            <pre><code class="language-markup">&lt;div class=&quot;n-accordion&quot;&gt;
 	&lt;input type=&quot;checkbox&quot; aria-label=&quot;Toggle accordion&quot;&gt;
 	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
 		&lt;button id="accordion-1-button" aria-controls="accordion-1-content"&gt;
@@ -178,96 +240,118 @@
 		&lt;/div&gt;	
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-			</div>
-					
-				</div>
-				<div class="_1/1">
-					<h2>Pop-in</h2>
-					<div class="n-accordion__popin" role="group" style="--duration: .125">
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>1</button></h2>
-							<div class="n-accordion__content" role="region">Content for 1</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>2</button></h2>
-							<div class="n-accordion__content" role="region">Content for 2</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>3</button></h2>
-							<div class="n-accordion__content" role="region">Content for 3</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>4</button></h2>
-							<div class="n-accordion__content" role="region">Content for 4</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>5</button></h2>
-							<div class="n-accordion__content" role="region">Content for 5</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>6</button></h2>
-							<div class="n-accordion__content" role="region">Content for 6</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>7</button></h2>
-							<div class="n-accordion__content" role="region">Content for 7</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>8</button></h2>
-							<div class="n-accordion__content" role="region">Content for 8</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>9</button></h2>
-							<div class="n-accordion__content" role="region">Content for 9</div>
-						</div>
-						<div class="n-accordion">
-							<input type="checkbox" aria-label="Toggle accordion">
-							<h2 class="n-accordion__label"><button>10</button></h2>
-							<div class="n-accordion__content" role="region">Content for 10</div>
-						</div>
-					</div>
-					<br>
-					<div class="code">
-						<pre><code class="language-markup">&lt;div class="n-accordion__popin" role="group"&gt;
+          </div>
+        </div>
+        <div class="_1/1">
+          <h2>Pop-in</h2>
+          <div
+            class="n-accordion__popin"
+            role="group"
+            style="--duration: 0.125"
+          >
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>1</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 1
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>2</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 2
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>3</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 3
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>4</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 4
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>5</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 5
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>6</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 6
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>7</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 7
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>8</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 8
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>9</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 9
+              </div>
+            </div>
+            <div class="n-accordion">
+              <input type="checkbox" aria-label="Toggle accordion" />
+              <h2 class="n-accordion__label"><button>10</button></h2>
+              <div class="n-accordion__content" role="region">
+                Content for 10
+              </div>
+            </div>
+          </div>
+          <br />
+          <div class="code">
+            <pre><code class="language-markup">&lt;div class="n-accordion__popin" role="group"&gt;
 	&lt;div class="n-accordion"&gt;
 		...
 	&lt;/div&gt;
 	...
 &lt;/div&gt;</code></pre>
-					</div>
-				</div>
+          </div>
+        </div>
 
-				<h2>Mobile only</h2>
+        <h2>Mobile only</h2>
 
-				<div class="n-accordion n-accordion--mobile">
+        <div class="n-accordion n-accordion--mobile">
+          <h2 class="n-accordion__label"><button>Mobile Accordion</button></h2>
 
-					<h2 class="n-accordion__label"><button>
+          <input type="checkbox" aria-label="Toggle accordion" />
 
-							Mobile Accordion
+          <div class="n-accordion__content" role="region">
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+              reprehenderit in voluptate velit esse cillum dolore eu fugiat
+              nulla pariatur.
+            </p>
+          </div>
+        </div>
 
-						</button></h2>
-
-					<input type="checkbox" aria-label="Toggle accordion">
-
-					<div class="n-accordion__content" role="region">
-
-						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-
-					</div>
-
-				</div>
-
-				<div class="code">
-					<pre><code class="language-markup">&lt;div class=&quot;n-accordion n-accordion--mobile&quot;&gt;
+        <div class="code">
+          <pre><code class="language-markup">&lt;div class=&quot;n-accordion n-accordion--mobile&quot;&gt;
 	&lt;input type=&quot;checkbox&quot; aria-label=&quot;Toggle accordion&quot;&gt;
 	&lt;h2 class=&quot;n-accordion__label&quot;&gt;
 		&lt;button id="accordion-1-button" aria-controls="accordion-1-content"&gt;
@@ -278,65 +362,145 @@
 		&lt;p&gt;Content&lt;/p&gt;
 	&lt;/div&gt;
 &lt;/div&gt;</code></pre>
-				</div>
+        </div>
+      </div>
 
+      <h2>How to use</h2>
 
-			</div>
+      <p>
+        Get the
+        <a href="https://www.npmjs.com/package/n-accordion"
+          >n-accordion NPM module</a
+        >
+        and either add <b><a href="n-accordion.js">n-accordion.js</a></b> and
+        <b><a href="n-accordion.scss">n-accordion.scss</a></b> to your
+        project<br />
+        or use <a href="n-accordion.min.js">n-accordion.min.js</a> and
+        <a href="n-accordion.min.css">n-accordion.min.css</a> on your page.
+      </p>
 
-			<h2>How to use</h2>
+      <h2>Options</h2>
 
-			<p>Get the <a href="https://www.npmjs.com/package/n-accordion">n-accordion NPM module</a> and either add <b><a href="n-accordion.js">n-accordion.js</a></b> and <b><a href="n-accordion.scss">n-accordion.scss</a></b> to your project<br> or use <a href="n-accordion.min.js">n-accordion.min.js</a> and <a href="n-accordion.min.css">n-accordion.min.css</a> on your page.</p>
+      <ul>
+        <li>
+          Use the <b>--duration</b> CSS variable or the
+          <b>data-duration</b> attribute on <b>.n-accordion</b> for custom
+          animation timing, in seconds
+        </li>
+        <li>
+          Specify theme by CSS variables<br />
+          <b>--nui-control-bg</b>,<br />
+          <b>--nui-control-color</b>,<br />
+          <b>--nui-control-active-bg</b>,<br />
+          <b>--nui-control-active-color</b>,<br />
+          <b>--nui-border-size</b>,<br />
+          <b>--nui-border-color</b>,<br />
+          <b>--nui-shadow-blur</b>,<br />
+          <b>--nui-shadow-size</b>,<br />
+          <b>--nui-shadow-color</b>,<br />
+          <b>--nui-border-radius</b>
+        </li>
+        <li>Pop-in number of columns specified by <b>--n-popin-columns</b></li>
+        <li>
+          The <b>.n-accordion__label</b> element can be either
+          <b>h1</b>/<b>h2</b>/<b>h3</b>/<b>h4</b>/<b>h5</b>/<b>h6</b> or any tag
+          with <b>role="heading"</b> and <b>aria-level</b>
+        </li>
+        <li>
+          Customize the label vertical margin by <b>--accordion-margin</b>
+        </li>
+        <li>
+          Animation is instant when the system <b>Reduce motion</b> option is
+          enabled
+        </li>
+        <li>
+          Customize the chevron by overriding
+          <b>.n-accordion__label button:after { --icon: url(...) }</b> with a
+          <a href="https://yoksel.github.io/url-encoder/">URL-encoded</a> SVG.
+          It will be coloured by <b>--nui-control-color</b>
+        </li>
+        <li>
+          <b>.n-accordion__content</b> with nested accordions can have
+          <b>role="group"</b> to keep only one child accordion open at a time
+        </li>
+        <li>
+          <b>.n-accordion.n-accordion--close-nested</b> will close all child
+          accordions when closed
+        </li>
+      </ul>
 
-			<h2>Options</h2>
+      <h2>Links</h2>
 
-			<ul>
-				<li>Use the <b>--duration</b> CSS variable or the <b>data-duration</b> attribute on <b>.n-accordion</b> for custom animation timing, in seconds</li>
-				<li>Specify theme by CSS variables<br> <b>--nui-control-bg</b>,<br> <b>--nui-control-color</b>,<br> <b>--nui-control-active-bg</b>,<br> <b>--nui-control-active-color</b>,<br> <b>--nui-border-size</b>,<br> <b>--nui-border-color</b>,<br> <b>--nui-shadow-blur</b>,<br> <b>--nui-shadow-size</b>,<br> <b>--nui-shadow-color</b>,<br> <b>--nui-border-radius</b></li>
-				<li>Pop-in number of columns specified by <b>--n-popin-columns</b></li>
-				<li>The <b>.n-accordion__label</b> element can be either <b>h1</b>/<b>h2</b>/<b>h3</b>/<b>h4</b>/<b>h5</b>/<b>h6</b> or any tag with <b>role="heading"</b> and <b>aria-level</b></li>
-				<li>Customize the label vertical margin by <b>--accordion-margin</b></li>
-				<li>Animation is instant when the system <b>Reduce motion</b> option is enabled</li>
-				<li>Customize the chevron by overriding <b>.n-accordion__label button:after { --icon: url(...) }</b> with a <a href="https://yoksel.github.io/url-encoder/">URL-encoded</a> SVG. It will be coloured by <b>--nui-control-color</b></li>
-				<li><b>.n-accordion__content</b> with nested accordions can have <b>role="group"</b> to keep only one child accordion open at a time</li>
-				<li><b>.n-accordion.n-accordion--close-nested</b> will close all child accordions when closed</li>
-			</ul>
+      <p><a href="https://github.com/radogado/n-accordion">GitHub page</a></p>
 
-			<h2>Links</h2>
+      <p>
+        Developed by <a href="//rado.bg">Radoslav Sharapanov</a>, originally a
+        part of the <a href="//niui.dev/">niui</a> library.
+      </p>
 
-			<p><a href=https://github.com/radogado/n-accordion>GitHub page</a></p>
+      <p>
+        <a href="https://www.paypal.com/paypalme/radogado/5">Buy me a beer</a>
+      </p>
+    </main>
 
-			<p>Developed by <a href="//rado.bg">Radoslav Sharapanov</a>, originally a part of the <a href="//niui.dev/">niui</a> library.</p>
+    <script>
+      function copyButton(el, target, echo) {
+        el.addEventListener("click", async (event) => {
+          try {
+            const text = target.textContent || target.innerText;
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              await navigator.clipboard.writeText(text);
+            } else {
+              // Fallback for older browsers
+              window.getSelection().removeAllRanges();
+              var range = document.createRange();
+              range.selectNode(target);
+              window.getSelection().addRange(range);
+              document.execCommand("copy");
+              window.getSelection().removeAllRanges();
+            }
+          } catch (err) {
+            console.error("Failed to copy:", err);
+          }
+        });
+      }
 
-			<p><a href="https://www.paypal.com/paypalme/radogado/5">Buy me a beer</a></p>
+      document.querySelectorAll(".code").forEach(function (el) {
+        el.insertAdjacentHTML(
+          "beforeend",
+          "<button class='n-btn' type='button'>Copy</button>",
+        );
+        copyButton(el.querySelector("button"), el.querySelector("pre"));
+      });
 
-		</main>
-
-		<script>
-			function copyButton(el, target, echo) {
-				el.addEventListener("click", (event) => {
-					window.getSelection().removeAllRanges(); // Clear previous clipboard
-					var range = document.createRange();
-					range.selectNode(target);
-					window.getSelection().addRange(range);
-
-					try {
-						document.execCommand("copy");
-					} catch (err) {}
-				});
-			}
-
-			document.querySelectorAll(".code").forEach(function(el) {
-				el.insertAdjacentHTML("beforeend", "<button class='n-btn' type='button'>Copy</button>");
-				copyButton(el.querySelector("button"), el.querySelector("pre"));
-			});
-
-			["css", "js"].forEach((el) => {
-				fetch(`n-accordion.min.${el}.size`).then((response) => response.text()).then((text) => (document.querySelector(`[href="n-accordion.min.${el}"]`).dataset.size = `${parseFloat(text / 1024).toFixed(1)} KB`));
-			});
-			fetch(`package.json`).then((response) => response.json()).then((text) => {
-				document.querySelector(".headline-version").dataset.version = text.version.split(".")[0] + "." + text.version.split(".")[1];
-			});
-		</script>
-	</body>
-
+      ["css", "js"].forEach((el) => {
+        fetch(`n-accordion.min.${el}.size`)
+          .then((response) => {
+            if (!response.ok) throw new Error(`HTTP ${response.status}`);
+            return response.text();
+          })
+          .then((text) => {
+            const link = document.querySelector(
+              `[href="n-accordion.min.${el}"]`,
+            );
+            if (link)
+              link.dataset.size = `${parseFloat(text / 1024).toFixed(1)} KB`;
+          })
+          .catch((err) => console.error(`Failed to load ${el} size:`, err));
+      });
+      fetch(`package.json`)
+        .then((response) => {
+          if (!response.ok) throw new Error(`HTTP ${response.status}`);
+          return response.json();
+        })
+        .then((text) => {
+          const versionEl = document.querySelector(".headline-version");
+          if (versionEl && text.version) {
+            versionEl.dataset.version =
+              text.version.split(".")[0] + "." + text.version.split(".")[1];
+          }
+        })
+        .catch((err) => console.error("Failed to load version:", err));
+    </script>
+  </body>
 </html>
