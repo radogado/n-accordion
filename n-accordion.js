@@ -5,8 +5,8 @@
       easing: "ease-in-out",
       duration: window.matchMedia("(prefers-reduced-motion: no-preference)")
         .matches
-        ? el.dataset.duration * 1000 ||
-          getComputedStyle(el).getPropertyValue("--duration") * 1000 ||
+        ? parseFloat(el.dataset.duration) * 1000 ||
+          parseFloat(getComputedStyle(el).getPropertyValue("--duration")) * 1000 ||
           200
         : 0,
     };
@@ -53,9 +53,9 @@
         if (wrapper.classList.contains("n-accordion--close-nested")) {
           el.querySelectorAll(
             ".n-accordion__label button[aria-expanded='true']",
-          ).forEach((el) => el.setAttribute("aria-expanded", false));
+          ).forEach((btn) => btn.setAttribute("aria-expanded", false));
           el.querySelectorAll(".n-accordion").forEach(
-            (el) => delete el.dataset.expanded,
+            (acc) => delete acc.dataset.expanded,
           );
         }
       };

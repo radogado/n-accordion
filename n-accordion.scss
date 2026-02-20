@@ -38,7 +38,7 @@ $mobile: 600px;
   }
 
   &[data-expanded] >,
-  input:checked ~ {
+  > input:checked ~ {
     .n-accordion__label {
       button {
         background: var(--nui-control-active-bg, #fff);
@@ -108,7 +108,7 @@ $mobile: 600px;
     }
 
     .n-accordion__content {
-      grid-row: var(--n-popin-open-row, 0);
+      grid-row: var(--n-popin-open-row, 2);
       grid-column: 1/-1;
     }
 
