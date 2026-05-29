@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use "../../css/niui-vars" as *;
 
 $mobile: 600px;
 
@@ -78,7 +79,9 @@ $mobile: 600px;
         0 0 0 var(--nui-border-size) var(--nui-border-color),
         0 0 var(--nui-shadow-blur)
           calc(var(--nui-border-size) + var(--nui-shadow-size))
-          var(--nui-shadow-color);
+        var(--nui-shadow-color);
+
+      @include focus-visible-ring;
 
       &:after {
         transition: transform 0.2s ease-in-out;
