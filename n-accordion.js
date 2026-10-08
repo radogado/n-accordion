@@ -103,6 +103,19 @@
       el.dataset.ready = true;
       let button = el.querySelector(":scope > .n-accordion__label button");
       if (!button) return;
+      button.type = "button";
+      const content = accordionContent(el);
+      if (content) {
+        if (!content.id) {
+          content.id = "n-accordion-" + Math.random().toString(36).slice(2, 10);
+        }
+        if (!button.hasAttribute("aria-controls")) {
+          button.setAttribute("aria-controls", content.id);
+        }
+        if (!content.hasAttribute("role")) {
+          content.setAttribute("role", "region");
+        }
+      }
       button.addEventListener("click", toggleAccordion);
       if (button.getAttribute("aria-expanded") === "true") {
         el.dataset.expanded = true;
